@@ -79,7 +79,7 @@ permalink: /guide/
   After that discuss situations when each of them may be more preferable than others.
 
 1. Solution of the challenge: `Filtered( elts, g -> 2^g = 2 );` and
-  `Filtered( elts, g -> (1,2)^g = (1,2) );`.
+   `Filtered( elts, g -> (1,2)^g = (1,2) );`.
 
 ## [Some more GAP objects](../episodes/02-some-objects.md)
 
@@ -101,7 +101,7 @@ permalink: /guide/
   provides an example of extending GAP with new multiplicative objects.
 
 1. Solution of the challenge:
-  `r:=c[1]; for i in [2..Length(c)] do if c[i][2]>r[2] then r:=c[i]; fi; od; r;`
+   `r:=c[1]; for i in [2..Length(c)] do if c[i][2]>r[2] then r:=c[i]; fi; od; r;`
 
 ## [Functions in GAP](../episodes/03-func.md)
 
@@ -141,16 +141,16 @@ permalink: /guide/
   from this lesson.
 
 1. Solution of the challenge:
-  `Sum(List(Filtered([1..2000], n -> not IsPrimePowerInt(n)),NrSmallGroups)); NrSmallGroups(1536); last2-last;`.
-  In addition to `SmallGroup(105,1)` and `SmallGroup(357,1)`, another
-  group is `SmallGroup(1785,1)`.
+   `Sum(List(Filtered([1..2000], n -> not IsPrimePowerInt(n)),NrSmallGroups)); NrSmallGroups(1536); last2-last;`.
+   In addition to `SmallGroup(105,1)` and `SmallGroup(357,1)`, another
+   group is `SmallGroup(1785,1)`.
 
 ## [Attributes and Methods](../episodes/06-attributes.md)
 
 - Why it is not a good idea to declare `Random` as an attribute?
 
 1. Ideas for the challenge: try `k:=1` and then `k:=k+1;n:=2^k;AvgOrdOfCollection(DihedralGroup(n));time;AvgOrdOfGroup(DihedralGroup(n));time;`.
-  Even for `k=20`, the 1st function takes about 15s and the 2nd - about 115s
-  on a MacBook Pro.
+   Even for `k=20`, the 1st function takes about 15s and the 2nd - about 115s
+   on a MacBook Pro.
 
 

@@ -27,7 +27,6 @@ Try to repeatedly calculate `AvgOrdOfGroup(M11)` and `AvgOrdOfCollection(M11)`
 and compare runtimes. Do this for a new copy of `M11` and for the one for which
 this parameter has already been observed. What do you observe?
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Of course, for any given group the average order of its elements needs to
@@ -61,7 +60,7 @@ of the calculation was not stored in `A`.
 If you need to reuse this value, one option could be to store it in some
 variable, but then you should be careful about matching such variables
 with corresponding groups, and the code could become quite convoluted
-and unreadable. On the other hand, GAP has the notion of an *attribute* -- a
+and unreadable. On the other hand, GAP has the notion of an _attribute_ -- a
 data structure that is used to accumulate information that an object learns about itself
 during its lifetime. Consider the following example:
 
@@ -132,7 +131,7 @@ could happen that you don't know in advance the type of the object in question,
 you may add checks into the code and dispatch to a suitable function. This could
 quickly become complicated if you have several different functions for various
 types of objects. Instead of that, attributes are bunches of functions, called
-*methods*, and GAP's *method selection* will choose the most efficient method
+_methods_, and GAP's _method selection_ will choose the most efficient method
 based on the type of all arguments.
 
 To illustrate this, we will now install a method for `AverageOrder` for a group:
@@ -169,10 +168,9 @@ S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
 - `ApplicableMethod` in combination with `PageSource` may point you to
   the source code with all the comments.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-A *property* is a boolean-valued attribute. It can be created using `NewProperty`
+A _property_ is a boolean-valued attribute. It can be created using `NewProperty`
 
 ```gap
 IsIntegerAverageOrder := NewProperty("IsIntegerAverageOrder", IsCollection);
@@ -201,7 +199,6 @@ the most suitable method.
 No. "No-method-found" is a special kind of error, and there are tools to
 investigate such errors: see `?ShowArguments`, `?ShowDetails`, `?ShowMethods`
 and `?ShowOtherMethods`.
-
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -236,14 +233,13 @@ l:=List([1..1000],i->SmallGroup(1536,i));; List(l,AvgOrdOfCollection);;time;
 - Estimate practical boundaries of its feasibility. Can you find an example
   of a pc group where iterating is slower than calculating conjugacy classes?
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- *Positional* objects may accumulate information about themselves during their lifetime.
+- _Positional_ objects may accumulate information about themselves during their lifetime.
 - This means that next time the stored information may be retrieved at zero cost.
-- *Methods* are bunches of functions; GAP's *method selection* will choose the most efficient method based on the type of all arguments.
+- _Methods_ are bunches of functions; GAP's _method selection_ will choose the most efficient method based on the type of all arguments.
 - 'No-method-found' is a special kind of error with useful debugging tools helping to understand it.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

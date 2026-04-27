@@ -40,7 +40,6 @@ No previous experience of working with GAP is required.
 Learners only need to understand the concepts of files and directories
 (including home and working directories) and know how to start GAP.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  checklist
@@ -64,8 +63,7 @@ Learners only need to understand the concepts of files and directories
   (edit the path as necessary; remember to use `/` instead of `\`);
 
 4. Verify that your current directory is set up properly: call `DirectoryCurrent();`
-  and check that the path in the output points to the `avgord` directory.
-  
+   and check that the path in the output points to the `avgord` directory.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

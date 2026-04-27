@@ -1,28 +1,24 @@
 ---
-title: First session with GAP
+title: Перша сесія з GAP
 teaching: 30
 exercises: 10
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Time-saving tips and tricks
-- Using GAP's help system
-- Basic objects and constructions in the GAP language
+- Поради та підказки, які заощадять час
+- Використання довідкової системи GAP
+- Базові об'єкти та конструкції в мові GAP
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- Working with the GAP command line
+- Робота з командним рядком GAP
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-If GAP is installed correctly you should be able to start it. Exactly how
-you start GAP will depend on your operating system and how you installed
-GAP. GAP starts with the *banner* displaying information about the version of
-the system and loaded components, and then displays the command line prompt
-`gap>`, for example:
+Якщо GAP встановлено правильно, ви повинні мати можливість його запустити. Як саме це зробити, залежатиме від вашої операційної системи та способу встановлення GAP. Після запуску, GAP виведе на екран свій _банер_, який відображає інформацію про версію системи та завантажені компоненти, а потім запрошення командного рядка `gap>`, наприклад:
 
 ```output
  ┌───────┐   GAP 4.9.2 of 04-Jul-2018
@@ -41,17 +37,13 @@ the system and loaded components, and then displays the command line prompt
 gap>
 ```
 
-To leave GAP, type `quit;` at the GAP prompt. Remember that all GAP commands,
-including this one, must be finished with a semicolon! Practice entering
-`quit;` to leave GAP, and then starting a new GAP session. Before continuing, you
-may wish to enter the following command to display GAP prompts and user inputs
-in different colours:
+Щоб вийти з GAP, введіть `quit;` у командному рядку GAP. Пам’ятайте, що всі команди GAP, включно з цією, мають закінчуватися крапкою з комою! Потренуйтеся вводити `quit;`, щоб вийти з GAP, а потім починати новий сеанс GAP. Перш ніж продовжити, ви можливо забажаєте ввести наступну команду, щоб відображати запрошення GAP та команди, введені користувачем у різних кольорах:
 
 ```gap
  ColorPrompt(true);
 ```
 
-The easiest way to start trying GAP out is as a calculator:
+Найпростіший шлях розпочати роботу з GAP - це використовувати GAP як калькулятор:
 
 ```gap
 ( 1 + 2^32 ) / (1 - 2*3*107 );
@@ -61,37 +53,33 @@ The easiest way to start trying GAP out is as a calculator:
 -6700417
 ```
 
-If you want to record what you did in a GAP session, so you can look over it
-later, you can enable logging with the `LogTo` function, like this.
+Якщо ви хочете записати те, що ви робили під час сеансу GAP, щоб ви могли переглянути це пізніше, ви можете ввімкнути ведення журналу за допомогою функції `LogTo`, як наведено далі.
 
 ```gap
 LogTo("gap-intro.log");
 ```
 
-This will create a file file `gap-intro.log` in the current directory which
-will contain all subsequent input and output that appears on your terminal.
-To stop logging, you can call `LogTo` without arguments, as in `LogTo();`,
-or leave GAP. Note that `LogTo` blanks the file before starting, if it
-already exists!
+Це створить файл `gap-intro.log` у поточному каталозі, який міститиме всі подальші вхідні та вихідні дані, які з’являтимуться у вашому терміналі.
+Щоб припинити ведення журналу, ви можете викликати `LogTo` без аргументів, як у `LogTo();`, або залишити GAP. Зауважте, що `LogTo` очищає файл перед запуском, якщо він уже існує!
 
-It can be useful to leave some comments in the log file in case you
-return to it in the future. A comment in GAP starts with the symbol `#` and
-continues to the end of the line. You can enter the following after the
-GAP prompt:
+Може бути корисним залишити кілька коментарів у файлі журналу на випадок,
+якщо ви повернетеся до нього в майбутньому. Коментар у GAP починається з символу `#` і
+продовжується до кінця рядка. Ви можете ввести наступне після
+підказки GAP:
 
 ```gap
-# GAP Software Carpentry Lesson
+# Урок Software Carpentry GAP
 ```
 
-then after pressing the Return key, GAP will display a new prompt but the comment
-will be written to the log file.
+тоді після натискання клавіші Return GAP відобразить нову підказку, але коментар
+буде записаний у файл журналу.
 
-The log file records all interaction with GAP that happens after the call
-to `LogTo`, but not before. We can repeat our calculation from above
-if we want to record it as well. Instead of retyping it, we will use the Up and Down
-arrow keys to scroll the *command line history*. Repeat this until you see
-the formula again, then press Return (the location of the cursor in the command
-line does not matter):
+Файл журналу записує всю взаємодію з GAP, яка відбувається після виклику
+`LogTo`, але не раніше. Ми можемо повторити наші обчислення вище,
+якщо ми також хочемо їх записати. Замість того, щоб вводити їх повторно, ми будемо використовувати клавіші зі стрілками вгору та вниз
+для прокручування _історії командного рядка_. Повторюйте це, доки знову не побачите
+формулу, потім натисніть Return (розташування курсору в командному
+рядку не має значення):
 
 ```gap
 ( 1 + 2^32 ) / (1 - 2*3*107 );
@@ -101,12 +89,11 @@ line does not matter):
 -6700417
 ```
 
-You can also edit existing commands. Press Up once more, and then use the
-Left and Right arrow keys, Delete or Backspace to edit it and replace
-32 by 64 (some other useful shortcuts are
-Ctrl-A and Ctrl-E to move the cursor to the beginning and end of the
-line, respectively). Now press the Return key (at any position of the
-cursor in the command line):
+Ви також можете редагувати команди, що вже існують. Натисніть клавішу «Вгору» ще раз, а потім використовуйте
+клавіші зі стрілками вліво та вправо, Delete або Backspace, щоб відредагувати їх та замінити 32 на 64 (інші корисні комбінації клавіш —
+Ctrl-A та Ctrl-E, щоб перемістити курсор на початок і кінець
+рядку, відповідно). Тепер натисніть клавішу Return (у будь-якій позиції
+курсору в командному рядку):
 
 ```gap
 ( 1 + 2^64 ) / (1 - 2*3*107 );
@@ -116,13 +103,13 @@ cursor in the command line):
 -18446744073709551617/641
 ```
 
-It is useful to know that if the command line history is long, one could
-perform a partial search by typing the initial part of the command and using
-Up and Down arrow keys after that, to scroll only the lines that begin with
-the same string.
+Корисно знати, що якщо історія командного рядка велика, можна
+виконати частковий пошук, ввівши початкову частину команди, а потім використовуючи
+клавіші зі стрілками вгору та вниз, щоб прокрутити лише ті рядки, які починаються
+з введених символів.
 
-If you want to store a value for later use, you can assign it to a name
-using `:=`
+Якщо ви бажаєте зберегти значення для подальшого використання, ви можете присвоїти йому ім'я
+за допомогою `:=`
 
 ```gap
 universe := 6*7;
@@ -130,23 +117,19 @@ universe := 6*7;
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## `:=`, `=` and `<>`
+## Оператори `:=`, `=` та `<>`
 
-- In other languages you might be more familiar with using `=`, to assign
-  variables, but GAP uses `:=`.
+- В інших мовах Ви можете бути більш знайомі з використанням `=`, щоб присвоювати значення змінним, але GAP використовує `:=`.
 
-- GAP uses `=` to compare if two things are the same (where other languages might
-  use `==`).
+- GAP використовує `=` для порівняння, якщо дві об'єкти однакові (де інші мови можуть використовувати `==`).
 
-- Finally, GAP uses `<>` to check if two things are not equal (rather than the `!=`
-  you might have seen before).
-
+- Нарешті, GAP використовує `<>`, щоб перевірити, чи два об'єкти не рівні (замість `!=`, що ви могли бачити раніше).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Whitespace characters (i.e. Spaces, Tabs and Returns) are insignificant in GAP,
-except if they occur inside a string. For example, the previous input
-could be typed without spaces:
+Пробільні символи (тобто пробіли, табуляції та символи переводу рядка) не мають значення в GAP,
+за винятком випадків, коли вони знаходяться всередині рядка. Наприклад, попереднє введеня
+можна ввести без пробілів:
 
 ```gap
 (1+2^64)/(1-2*3*107);
@@ -156,8 +139,8 @@ could be typed without spaces:
 -18446744073709551617/641
 ```
 
-Whitespace symbols are often used to format more complicated commands for
-better readability. For example, the following input which creates a 3×3 matrix:
+Пробіли часто використовуються для форматування більш складних команд
+для кращої читабельності. Наприклад, наступне введення, яке створює матрицю 3×3: For example, the following input which creates a 3×3 matrix:
 
 ```gap
 m:=[[1,2,3],[4,5,6],[7,8,9]];
@@ -167,9 +150,9 @@ m:=[[1,2,3],[4,5,6],[7,8,9]];
 [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]
 ```
 
-We can instead write our matrix over 3 lines. In this case, instead of the full prompt
-`gap>`, a partial prompt `>` will be displayed until the user finishes
-the input with a semicolon:
+Замість цього ми можемо записати нашу матрицю в 3 рядки. У цьому випадку замість повної підказки
+`gap>` відображатиметься часткова підказка `>`, доки користувач не завершить
+введення крапкою з комою:
 
 ```gap
 gap> m:=[[ 1, 2, 3 ],
@@ -181,7 +164,7 @@ gap> m:=[[ 1, 2, 3 ],
 [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]
 ```
 
-You can use `Display` to pretty-print variables, including this matrix:
+Ви можете використовувати `Display` для красивого друку змінних, включаючи цю матрицю:
 
 ```gap
 Display(m);
@@ -193,21 +176,20 @@ Display(m);
   [  7,  8,  9 ] ]
 ```
 
-In general GAP functions like `LogTo` and `Display` are called using brackets,
-which contain a (possibly empty) list of arguments.
+Загалом функції GAP, як наприклад `LogTo` і `Display`, викликаються за допомогою дужок,
+які містять (можливо, порожній) список аргументів.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Functions are also GAP objects
+## Функції також є об’єктами GAP
 
-Check what happens if you forget to add brackets,
-e.g. type `LogTo;` and `Factorial;`
-We will explain the differences in these outputs later.
-
+Перевірте, що станеться, якщо ви забудете додати дужки,
+наприклад, введіть `LogTo;` і `Factorial;`
+Пізніше ми пояснимо відмінності в цих результатах.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Here are some examples of calling other GAP functions:
+Нижче наведені декілька прикладів виклику інших функцій GAP:
 
 ```gap
 Factorial(100);
@@ -219,7 +201,7 @@ Factorial(100);
 7223758251185210916864000000000000000000000000
 ```
 
-(the exact width of output will depend on your terminal settings),
+(точна ширина виводу залежатиме від налаштувань вашого терміналу),
 
 ```gap
 Determinant(m);
@@ -229,7 +211,7 @@ Determinant(m);
 0
 ```
 
-and
+та
 
 ```gap
 Factors(2^64-1);
@@ -239,23 +221,23 @@ Factors(2^64-1);
 [ 3, 5, 17, 257, 641, 65537, 6700417 ]
 ```
 
-Functions may be combined in various ways, and may be
-used as arguments of other functions, for example, the
-`Filtered` function takes a list and a function, returning
-all elements of the list which satisfy the function.
-`IsEvenInt`, unsurprisingly, checks if an integer is even!
+Функції можна комбінувати різними способами та
+використовувати як аргументи інших функцій, наприклад,
+функція `Filtered` приймає список і функцію, повертаючи
+всі елементи списку, які задовольняють функцію.
+`IsEvenInt` ("Is Even Integer" з англ. "чи є ціле число парним"), як не дивно, перевіряє, чи є ціле число парним!
 
 ```gap
 Filtered( [2,9,6,3,4,5], IsEvenInt);
 ```
 
 ```output
-[ 2, 6, 4 ]
+
 ```
 
-A useful time-saving feature of the GAP command-line interfaces is completion
-of identifiers when the Tab key is pressed. For example, type `Fib` and then
-press the Tab key to complete the input to `Fibonacci`:
+Корисною функцією інтерфейсу командного рядка GAP, яка економить час, є заповнення
+ідентифікаторів під час натискання клавіші Tab.  Наприклад, введіть `Fib`, а потім
+натисніть клавішу Tab, щоб завершити введення `Fibonacci`:
 
 ```gap
 Fibonacci(100);
@@ -265,21 +247,21 @@ Fibonacci(100);
 354224848179261915075
 ```
 
-In the case that a unique completion is not possible, GAP will try to perform
-partial completion, and pressing the Tab key second time will display all possible
-completions of the identifier. Try, for example, to enter `GroupHomomorphismByImages`
-or `NaturalHomomorphismByNormalSubgroup` using completion.
+У випадку, якщо унікальне доповнення неможливе, GAP спробує виконати
+часткове доповнення, а натискання клавіші Tab вдруге відобразить усі можливі
+доповнення ідентифікатора. Спробуйте, наприклад, ввести `GroupHomomorphismByImages`
+або `NaturalHomomorphismByNormalSubgroup` за допомогою доповнення.
 
-The way functions are named in GAP will hopefully help you to memorise or even guess names
-of library functions. If a variable name consists of several words then the
-first letter of each word is capitalised (remember that GAP is case-sensitive!).
-Further details on naming conventions used in GAP are documented
-[in the GAP manual here](https://docs.gap-system.org/doc/ref/chap5.html#X81F732457F7BC851).
-Functions with names in `ALL_CAPITAL_LETTERS` are internal functions not intended
-for general use. Use them with extreme care!
+Сподіваємось, те, як функції називаються в GAP, допоможе вам запам’ятовувати або навіть вгадувати назви
+бібліотечних функцій. Якщо назва змінної складається з кількох слів,
+то перша літера кожного слова пишеться з великої літери (пам’ятайте, що GAP чутливий до регістру!).
+Подальші відомості про правила іменування, які використовуються в GAP,
+задокументовані в посібнику GAP [тут](http://www.gap-system.org/Manuals/doc/ref/chap5.html#X81F732457F7BC851).
+Функції з назвами `У_ВЕРХНЬОМУ_РЕГІСТРІ` є внутрішніми функціями, не призначеними
+для загального використання.  Використовуйте їх з особливою обережністю!
 
-It is important to remember that GAP is case-sensitive. For example, the following
-input causes an error:
+Важливо пам’ятати, що GAP чутливий до регістру. Наприклад, наступне
+введення викликає помилку:
 
 ```gap
 factorial(100);
@@ -290,14 +272,14 @@ Error, Variable: 'factorial' must have a value
 not in any function at line 14 of *stdin*
 ```
 
-because the name of the GAP library function is `Factorial`. Using lowercase
-instead of uppercase or vice versa also affects name completion.
+тому що назва функції бібліотеки GAP – `Factorial`. Використання малих літер
+замість великих або навпаки також впливає на доповнення назви.
 
-Now let's consider the following problem: for a finite group *G*, calculate the
-average order of its elements (that is, the sum of orders of its elements divided
-by the order of the group). Where to start?
+Тепер давайте розглянемо таку задачу: для скінченної групи _G_ обчислити
+середній порядок її елементів (тобто суму порядків її елементів, поділену
+на порядок групи). З чого почати?
 
-Enter `?Group`, and you will see all help entries, starting with `Group`:
+Введіть `?Group`, і ви побачите всі записи довідкової системи, що починаються з `Group`:
 
 ```output
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -326,17 +308,15 @@ Enter `?Group`, and you will see all help entries, starting with `Group`:
 └─────────────── [ <Up>/<Down> select, <Return> show, q quit ] ────────────────┘
 ```
 
-You may use arrow keys to move up and down the list, and open help pages by
-pressing Return key. For this exercise, open `Tutorial: Groups and Homomorphisms`
-first. Note the navigation instructions at the bottom of the screen. Look at
-first two pages, then press `q` to return to the selection menu. Next, navigate to
-`Reference: Groups` and open it. Within two first pages you will find the
-function `Group` and mentioning of `Order`.
+Ви можете використовувати клавіші зі стрілками для переміщення вгору та вниз по списку, а також відкривати сторінки довідки,
+натискаючи клавішу Return. Для цієї вправи спочатку відкрийте `Tutorial: Groups and Homomorphisms`. Зверніть увагу на навігаційні інструкції внизу екрана. Перегляньте
+перші дві сторінки, потім натисніть `q`, щоб повернутися до меню вибору. Далі перейдіть до елементу
+`Reference: Groups` і відкрийте його. На перших двох сторінках ви знайдете
+функцію `Group` та згадку `Order`.
 
-GAP manual comes in several formats: text is good to view in a terminal,
-PDF is good for printing and HTML (especially with MathJax support) is
-very efficient for exploring with a browser. If you are running GAP on your
-own computer, you can set the help viewer to the default browser. If you are
+Посібник GAP доступний у кількох форматах: текстовий зручний для перегляду в терміналі,
+PDF зручний для друку, а HTML (особливо з підтримкою MathJax)
+дуже ефективний для перегляду за допомогою браузера. Якщо ви використовуєте GAP на власному комп’ютері, ви можете встановити для перегляду довідки браузер за замовчуванням. If you are
 running GAP on a remote machine, this (probably) will not work. (see
 `?WriteGapIniFile` on how to make this setting permanent):
 
@@ -344,25 +324,25 @@ running GAP on a remote machine, this (probably) will not work. (see
 SetHelpViewer("browser");
 ```
 
-After that, invoke the help again, and see the difference!
+Після цього викличте довідку знову та побачите різницю!
 
-Let's now copy the following input from the first example of the GAP Reference
-manual chapter on groups. It shows how to create permutations, and assign values
-to variables. This is `Reference: Groups`. You can select it by typing `?11`, where
-you replace `11` with whatever number appears before `Reference: Groups` on your machine.
+Давайте тепер скопіюємо наступні вхідні дані з першого прикладу глави довідкового посібника GAP
+про групи. У ньому показано, як створювати перестановки та присвоювати значення
+змінним. Це `Reference: Groups`. Ви можете вибрати його, ввівши `?11`, де
+ви заміните `11` на те значення, яке з’явиться перед `Reference: Groups` на вашому комп'ютері.
 
-If you are viewing the GAP documentation in a terminal, you might find it helpful to
-open two copies of GAP, one for reading documentation and one for writing code!
+Якщо ви переглядаєте документацію GAP у терміналі, вам може бути корисно
+відкрити дві копії GAP, одну для читання документації та одну для написання коду!
 
-This guide shows how permutations in GAP are written in cycle notation, and also
-shows common functions which are used with groups. Also, in some places two semi-colons
-are used at the end of a line. This stops GAP from showing the result of a computation.
+Цей посібник показує, як перестановки в GAP записуються в циклічній нотації, а також
+показує загальні функції, які використовуються з групами. Крім того, у деяких місцях використовуються дві крапки з комою
+в кінці рядка. Це не дозволить GAP показувати результат обчислення.
 
 ```gap
 a:=(1,2,3);;b:=(2,3,4);;
 ```
 
-Next, let `G` be a group generated by `a` and `b`:
+Далі, нехай `G` - група, утворена за допомогою `a` та `b`:
 
 ```gap
 G:=Group(a,b);
@@ -372,7 +352,7 @@ G:=Group(a,b);
 Group([ (1,2,3), (2,3,4) ])
 ```
 
-We may explore some properties of `G` and its generators:
+Ми можемо дослідити деякі властивості групи `G` та її породжувачів:
 
 ```gap
 Size(G); IsAbelian(G); StructureDescription(G); Order(a);
@@ -385,11 +365,10 @@ false
 3
 ```
 
-Our next task is to find out how to obtain a list of `G`'s elements and their orders.
-Enter `?elements` and explore the list of help topics. After inspection,
-the entry from the Tutorial does not seem relevant, but the entry from the
-Reference manual is. It also explains the difference between using `AsSSortedList`
-and `AsList`. So, this is the list of elements of `G`:
+Нашим наступним завданням є з'ясувати, як отримати список елементів `G` та їх порядок.
+Введіть `?elements` і перегляньте список тем довідки. Після перевірки запис у Tutorial не здається актуальним, але є запис у
+довідковому посібнику (Reference). Тут також пояснюється різниця між використанням `AsSSortedList`
+і `AsList`. Отже, це список елементів `G`:
 
 ```gap
 AsList(G);
@@ -400,11 +379,11 @@ AsList(G);
   (1,3)(2,4), (1,4,2), (1,4,3), (1,4)(2,3) ]
 ```
 
-The returned object is a *list*. We would like to assign it to a variable
-to explore and reuse. We forgot to do it when we were calculating it. Of
-course, we may use the command line history to restore the last command, edit
-it and call again. But instead, we will use `last` which is a special variable
-holding the last result returned by GAP:
+Повернений об’єкт є _списком_. Ми хотіли б призначити його змінній
+для дослідження та повторного використання. Ми забули це зробити, коли обчислювали. Звичайно,
+ми можемо використовувати історію командного рядка, щоб відновити останню команду, відредагувати
+її та викликати знову. Але замість цього ми будемо використовувати `last`, яка є спеціальною змінною,
+що містить останній результат, повернутий GAP:
 
 ```gap
 elts:=last;
@@ -415,8 +394,8 @@ elts:=last;
   (1,3)(2,4), (1,4,2), (1,4,3), (1,4)(2,3) ]
 ```
 
-This is a list. Lists in GAP are indexed from 1.
-The following commands are (hopefully!) self-explanatory:
+Це список. Списки в GAP індексуються від 1.
+Наступні команди (сподіваємося!) не потребують пояснень:
 
 ```gap
 gap> elts[1]; elts[3]; Length(elts);
@@ -430,21 +409,20 @@ gap> elts[1]; elts[3]; Length(elts);
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Lists are more than arrays
+## Списки — це більше, ніж масиви
 
-- May contain holes or be empty
+- Може містити дірки або бути порожнім
 
-- May dynamically change their length (with `Add`, `Append` or direct assigment)
+- Може динамічно змінювати їх довжину (за допомогою `Add`, `Append` або прямого призначення)
 
-- Not required to contain objects of the same type
+- Не обов’язково містить об’єкти одного типу
 
-- See more in [GAP Tutorial: Lists and Records](https://docs.gap-system.org/doc/tut/chap3.html)
-
+- Дивіться більше в [GAP Tutorial: Lists and Records](http://www.gap-system.org/Manuals/doc/tut/chap3.html)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Many functions in GAP refer to `Set`s. A set in GAP is just a list that happens to have
-no repetitions, no holes, and elements in increasing order. Here are some examples:
+Багато функцій у GAP посилаються на `Множини`. Множина у GAP — це лише список,
+який не має повторень, жодних дірок і елементів у порядку зростання. Ось кілька прикладів:
 
 ```gap
 gap> IsSet([1,3,5]); IsSet([1,5,3]); IsSet([1,3,3]);
@@ -456,12 +434,12 @@ false
 false
 ```
 
-Now let us consider an interesting calculation -- the average order of elements
-of `G`. There are many different ways to do this, we will consider a few of them
-here.
+Тепер давайте розглянемо цікаве обчислення - середній порядок елементів
+групи `G`. Існує багато різних способів зробити це, ми розглянемо деякі з них
+тут.
 
-A `for` loop in GAP allows you to do something for every member of a collection.
-The general form of a `for` loop is:
+Цикл `for` у GAP дозволяє щось робити для кожного члена колекції.
+Загальна форма циклу "for" така:
 
 ```gap
 for val in collection do
@@ -469,7 +447,7 @@ for val in collection do
 od;
 ```
 
-For example, to find the average order of our group `G` we can do.
+Наприклад, ми можемо знайти середній порядок нашої групи `G`.
 
 ```gap
 s:=0;;
@@ -483,9 +461,11 @@ s/Length(elts);
 31/12
 ```
 
-Actually, we can just directly loop over the elements of `G` (in general GAP
-will let you loop over most types of object). We have to switch to using `Size`
-instead of `Length`, as groups don't have a length!
+Насправді, ми можемо просто перебирати елементи `G` (загалом GAP
+дозволить вам перебирати більшість типів об’єктів). Нам потрібно перейти на використання `Size`
+замість `Length`, оскільки групи не мають довжини! We have to switch to using `Size`
+instead of `Length`, as groups don't have a length!Нам потрібно перейти на використання `Size`
+замість `Length`, оскільки групи не мають довжини!
 
 ```gap
 s:=0;;
@@ -499,8 +479,8 @@ s/Size(G);
 31/12
 ```
 
-There are other ways of looping. For example, we can instead loop over a range of integers,
-and accept `elts` like an array:
+Існують і інші способи зациклювання. Наприклад, натомість ми можемо перейти до діапазону цілих чисел
+прийняти `elts` як масив:
 
 ```gap
 s:=0;;
@@ -514,8 +494,8 @@ s/Length(elts);
 31/12
 ```
 
-However, often there are more compact ways of doing things. Here is a very
-short way:
+Однак часто існують більш компактні способи виконання завдань. Ось дуже
+короткий шлях:
 
 ```gap
 Sum( List( elts, Order ) ) / Length( elts );
@@ -525,31 +505,29 @@ Sum( List( elts, Order ) ) / Length( elts );
 31/12
 ```
 
-Let's break this last part down:
+Давайте розберемо останню частину:
 
-- `Order` finds the order of a single permutation.
-- `List(L,F)` makes a new list where the function `F` is applied to each
-  member of the list `L`.
-- `Sum(L)` adds up the members of a list `L`.
+- `Order` знаходить порядок однієї перестановки.
+- `List(L,F)` створює новий список, де функція `F` застосовується до кожного члена списку `L`.
+- `Sum(L)` додає члени списку `L`.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Which approach is best?
+## Який підхід найкращий?
 
-Compare these approaches. Which one would you prefer to use?
-
+Порівняйте ці підходи. Якому із них ви віддасте перевагу?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-GAP has very helpful list manipulation tools. We will now show a few more examples.
+GAP має дуже корисні інструменти для роботи зі списками. Зараз ми покажемо ще кілька прикладів.
 
-Sometimes, GAP does not have the exact function we want.
-For example, `NrMovedPoints` gives the number of moved points of a permutation,
-but what if we want to find all permutations which move `4` points? This is where
-GAP's arrow notation comes in. `g -> e` makes a new function which takes one argument `g`,
-and returns the value of the expression `e`. Here are some examples:
+Іноді GAP не має тієї функції, яка нам потрібна.
+Наприклад, `NrMovedPoints` дає кількість переміщених точок перестановки,
+але що, якщо ми хочемо знайти всі перестановки, які пересувають 4 точки? Ось тут
+і з’являється позначення GAP зі стрілками. `g -> e` створює нову функцію, яка отримує один аргумент `g`
+і повертає значення виразу `e`. Ось деякі приклади:
 
-- finding all elements of `G` with no fixed points:
+- знаходження всіх елементів `G` без фіксованих точок:
 
 ```gap
 Filtered( elts, g -> NrMovedPoints(g) = 4 );
@@ -559,7 +537,7 @@ Filtered( elts, g -> NrMovedPoints(g) = 4 );
 [ (1,2)(3,4), (1,3)(2,4), (1,4)(2,3) ]
 ```
 
-- finding a permutation in `G` that conjugates (1,2) to (2,3)
+- знаходження перестановки в `G`, яка спрягає (1,2) та (2,3)
 
 ```gap
 First( elts, g -> (1,2)^g = (2,3) );
@@ -569,7 +547,7 @@ First( elts, g -> (1,2)^g = (2,3) );
 (1,2,3)
 ```
 
-Let's check this (remember that in GAP permutations are multiplied from left to right!):
+Давайте перевіримо це (пам’ятайте, що в GAP перестановки множаться зліва направо!):
 
 ```gap
 (1,2,3)^-1*(1,2)*(1,2,3)=(2,3);
@@ -579,7 +557,7 @@ Let's check this (remember that in GAP permutations are multiplied from left to 
 true
 ```
 
-- checking whether all elements of `G` move the point 1 to 2:
+- перевірка, чи всі елементи `G` пересувають точку 1 у 2:
 
 ```gap
 ForAll( elts, g -> 1^g <> 2 );
@@ -589,7 +567,7 @@ ForAll( elts, g -> 1^g <> 2 );
 false
 ```
 
-- checking whether there is an element in `G` which moves exactly two points:
+- перевірка того, чи є елемент у `G`, який переміщує рівно дві точки:
 
 ```gap
 ForAny( elts, g -> NrMovedPoints(g) = 2 );
@@ -601,27 +579,26 @@ false
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Use list operations to select from `elts` the stabiliser of the point 2 and the centraliser of the permutation (1,2)
+## Використовуйте операції зі списком, щоб вибрати з `elts` стабілізатор точки 2 і централізатор перестановки (1,2)
 
 - `Filtered( elts, g -> 2^g = 2 );`
 
 - `Filtered( elts, g -> (1,2)^g = (1,2) );`
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Remember that GAP is case-sensitive!
-- Do not panic if you see `Error, Variable: 'FuncName' must have a value`.
-- Care about names of variables and functions.
-- Use command line editing.
-- Use autocompletion instead of typing names of functions and variables in full.
-- Use `?` and `??` to view help pages.
-- Set the default help format to HTML using `SetHelpViewer`.
-- Use the `LogTo` function to save all GAP input and output into a text file.
-- If calculation takes too long, press <Control>\-C to interrupt it.
-- Read 'A First Session with GAP' from the GAP Tutorial.
+- Пам’ятайте, що GAP чутливий до регістру!
+- Не панікуйте, якщо побачите `Error, Variable: 'FuncName' must have a value`.
+- Звертайте увагу на імена змінних і функцій.
+- Використовуйте редагування командного рядка.
+- Використовуйте автозаповнення замість повного введення імен функцій і змінних.
+- Використовуйте `?` та `??`, щоб переглянути сторінки довідки.
+- Встановіть HTML в якості стандартного формату довідки за допомогою `SetHelpViewer`.
+- Використовуйте функцію `LogTo`, щоб зберегти всі введення та виведення GAP у текстовий файл.
+- Якщо обчислення триває занадто довго, натисніть <Control>\-C, щоб перервати його.
+- Прочитайте «Перше заняття з GAP» у підручнику з GAP.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
