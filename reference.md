@@ -61,23 +61,23 @@ Attribute
 argument and cannot be changed any more.
 
 List
-:    Data structure whose elements are indexed by their *position* in the list.
+:    Data structure whose elements are indexed by their _position_ in the list.
 
 Method
 :    Function that will be called for an operation for arguments of the
 specified type.
 
 Operation
-:    GAP function for which several *methods* may be available (the particular
+:    GAP function for which several _methods_ may be available (the particular
 method that will be used depends on the type of the arguments).
 
 Property
 :    Boolean-valued attribute
 
 Record
-:    Data structure which is a collection of *components*, each having a unique
-*name*, which is an *identifier* that distinguishes this component, and a
-*value*, which is an object of arbitrary type.
+:    Data structure which is a collection of _components_, each having a unique
+_name_, which is an _identifier_ that distinguishes this component, and a
+_value_, which is an object of arbitrary type.
 
 Regression testing
 :    Testing based on rerunning previously completed tests to check that new
