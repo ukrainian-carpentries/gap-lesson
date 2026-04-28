@@ -92,7 +92,7 @@
           <button class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             More <i data-feather="chevron-down"></i>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li><a class="dropdown-item" href="discuss.html">Discussion</a></li><li><a class="dropdown-item" href="reference.html"></a></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li><a class="dropdown-item" href="discuss.html">Обговорення</a></li><li><a class="dropdown-item" href="reference.html"></a></li>
           </ul></li>
       </ul></div>
     <!--
@@ -244,7 +244,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="06-attributes.html">6. Attributes and Methods</a>
+        <a href="06-attributes.html">6. Атрибути та методи</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -272,7 +272,7 @@
                       <li>
                         <a href="profiles.html">Learner Profiles</a>
                       </li>
-                      <li><a href="discuss.html">Discussion</a></li><li><a href="reference.html"></a></li>
+                      <li><a href="discuss.html">Обговорення</a></li><li><a href="reference.html"></a></li>
                     </ul></div>
                 </div>
               </div>
@@ -378,33 +378,36 @@ points to the <code>avgord</code> directory.</li>
 
 
       <section id="setup"><section><h2 class="section-heading" id="windows">Windows<a class="anchor" aria-label="anchor" href="#windows"></a></h2>
-<hr class="half-width"><p>From the <a href="https://www.gap-system.org/Releases/" class="external-link">GAP Downloads
-page</a>, download the <code>.exe</code> installer and double click on
-the file to run it. When you are asked for the installation path, note
-that it should not contain spaces. For example, you may install GAP
-4.X.Y in <code>C:\gap-4.X.Y</code> (default), <code>D:\gap-4.X.Y</code>
-or <code>C:\Math\GAP\gap-4.X.Y</code>, but you must not install it in a
-directory such as <code>C:\Program Files\gap-4.X.Y</code> or
+<hr class="half-width"><p>На <a href="http://www.gap-system.org/Releases/" class="external-link">сторінці завантажень
+GAP</a>, завантажте інсталятор <code>.exe</code> і двічі клацніть файл,
+щоб запустити його. Коли вас запитають про шлях інсталяції, зверніть
+увагу, що він не повинен містити пробілів. Наприклад, ви можете
+встановити GAP 4.X.Y у <code>C:\gap-4.X.Y</code> (за замовчуванням),
+<code>D:\gap-4.X.Y</code> чи <code>C:\Math\GAP\gap-4.X.Y</code>, але ви
+не повинні інсталювати його в такий каталог, як
+<code>C:\Program Files\gap-4.X.Y</code> чи
 <code>C:\Users\alice\My Documents\gap-4.X.Y</code>.</p>
 </section><section><h2 class="section-heading" id="macos">macOS<a class="anchor" aria-label="anchor" href="#macos"></a></h2>
-<hr class="half-width"><p>On macOS, you need to install GAP from source as explained at the <a href="https://www.gap-system.org/Releases/" class="external-link">GAP Downloads page</a>.
-Download one of the archives provided there, unpack it and run
-<code>./configure &amp;&amp; make</code> in the unpacked directory. Then
-change to the <code>pkg</code> subdirectory and call
-<code>../bin/BuildPackages.sh</code> to run the script which will build
-most of the packages that require compilation (provided sufficiently
-many libraries, headers and tools are available).</p>
-<p>Alternatively, you may also install GAP using <a href="https://brew.sh/" class="external-link">Homebrew</a>. After installing Homebrew, follow
-the instructions for the <a href="https://github.com/gap-system/homebrew-gap" class="external-link">GAP Homebrew
+<hr class="half-width"><p>В OS X Вам потрібно інсталювати GAP із джерела, як описано на <a href="http://www.gap-system.org/Releases/" class="external-link">сторінці завантажень GAP</a>.
+Завантажте один із архівів, наданих там, розпакуйте його та запустіть
+<code>./configure &amp;&amp; make</code> у розпакованому каталозі. Потім
+перейдіть до підкаталогу <code>pkg</code> і викличте
+<code>../bin/BuildPackages.sh</code>, щоб запустити сценарій, який
+створить більшість пакетів, які потребують компіляції (за умови
+наявності достатньої кількості бібліотек, заголовків і
+інструментів).</p>
+<p>Крім того, ви також можете встановити GAP за допомогою <a href="http://brew.sh/" class="external-link">Homebrew</a>. Після встановлення Homebrew
+дотримуйтесь інструкцій для <a href="https://github.com/gap-system/homebrew-gap" class="external-link">GAP Homebrew
 tap</a>.</p>
 </section><section><h2 class="section-heading" id="linux">Linux<a class="anchor" aria-label="anchor" href="#linux"></a></h2>
-<hr class="half-width"><p>On Linux, you need to install GAP from source as explained at the <a href="https://www.gap-system.org/Releases/" class="external-link">GAP Downloads page</a>.
-Download one of the archives provided there, unpack it and run
-<code>./configure &amp;&amp; make</code> in the unpacked directory. Then
-change to the <code>pkg</code> subdirectory and call
-<code>../bin/BuildPackages.sh</code> to run the script which will build
-most of the packages that require compilation (provided sufficiently
-many libraries, headers and tools are available).</p>
+<hr class="half-width"><p>У Linux вам потрібно встановити GAP із джерела, як описано на <a href="http://www.gap-system.org/Releases/" class="external-link">сторінці завантажень GAP</a>.
+Завантажте один із наданих там архівів, розпакуйте його та запустіть
+<code>./configure &amp;&amp; make</code> у розпакованому каталозі. Потім
+перейдіть до підкаталогу <code>pkg</code> і викличте
+<code>../bin/BuildPackages.sh</code>, щоб запустити сценарій, який
+створить більшість пакетів, які потребують компіляції (за умови
+наявності достатньої кількості бібліотек, заголовків і
+інструментів).</p>
 </section></section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link float-end" href="01-command-line.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
