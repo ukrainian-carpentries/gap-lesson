@@ -301,77 +301,78 @@
       <hr></nav><main id="main-content" class="main-content"><h1 class="schedule-heading">Summary and Setup</h1>
       
 
-<p><a href="https://www.gap-system.org" class="external-link">GAP</a> is a system for discrete
-computational algebra, with particular emphasis on Computational Group
-Theory. GAP provides a programming language, a library of thousands of
-functions implementing algebraic algorithms written in the GAP language
-as well as large data libraries of algebraic objects, for example the <a href="https://gap-packages.github.io/smallgrp/" class="external-link">Small Groups Library</a>
-which contains, among others, all 423 164 062 groups of order at most
-2000 except 1024.</p>
-<p>This lesson gives an introduction to GAP. It is centred around a
-common task of searching in the Small Groups Library for interesting
-examples and counterexamples, and a particular research problem in which
-we will be interested is to <strong>find examples of non-trivial groups
-such that the average order of their elements is an
-integer</strong>.</p>
-<p>The lesson will lead the learner along the path from working in the
-GAP command line and exploring algebraic objects interactively to saving
-the GAP code into files, creating functions and regression tests, and
-further to performing comprehensive search and extending the system by
-adding new attributes.</p>
-<p>On this path, the learner will become familiar with:</p>
-<ul><li><p>basic constructions of the GAP programming language,</p></li>
-<li><p>ways to find necessary information in the GAP system,
-and</p></li>
-<li><p>good design practices to organise GAP code into complex
-programs.</p></li>
-</ul><div id="prerequisites" class="callout prereq">
+<p><a href="http://www.gap-system.org" class="external-link">GAP</a> — система дискретної
+обчислювальної алгебри з особливим акцентом на теорії обчислювальних
+груп. GAP надає мову програмування, бібліотеку тисяч функцій, що
+реалізують алгебраїчні алгоритми, написані мовою GAP, а також великі
+бібліотеки даних алгебраїчних об’єктів, наприклад, <a href="https://gap-packages.github.io/smallgrp/" class="external-link">Бібліотека малих
+груп</a>, яка містить, серед іншого, усі 423 164 062 групи порядку не
+більше 2000, крім 1024.</p>
+<p>У цьому уроці представлено введення в GAP. Він зосереджений навколо
+спільного завдання пошуку в бібліотеці малих груп цікавих прикладів і
+контрприкладів, а конкретна дослідницька проблема, в якій ми будемо
+зацікавлені, полягає в тому, щоб <strong>знайти приклади нетривіальних
+груп, таких, що середній порядок їх елементів є цілим
+числом</strong>.</p>
+<p>Урок проведе студента по шляху від роботи в командному рядку GAP та
+вивчення алгебраїчних об’єктів в інтерактивному режимі до збереження
+коду GAP у файли, створення функцій і регресійних тестів, а також до
+виконання всебічного пошуку та розширення системи шляхом додавання нових
+атрибутів.</p>
+<p>На цьому шляху студент ознайомиться з:</p>
+<ul><li><ul><li>основні конструкції мови програмування GAP,</li>
+</ul></li>
+<li><ul><li>способи пошуку необхідної інформації в системі GAP і</li>
+</ul></li>
+<li><ul><li>хороші практики проектування для організації коду GAP у складні
+програми.</li>
+</ul></li>
+</ul><div id="передумови" class="callout prereq">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check"></i>
 </div>
 <span class="callout-header">Prerequisite</span>
-<div id="prerequisites" class="callout-inner">
-<h3 class="callout-title">Prerequisites</h3>
+<div id="передумови" class="callout-inner">
+<h3 class="callout-title">Передумови</h3>
 <div class="callout-content">
-<p>The lesson is oriented on learners possessing the minimal theoretical
-background (at least at the level of an undergraduate group theory
-course) and willing to learn how concepts from abstract algebra may be
-explored using computational tools. No previous experience of working
-with GAP is required.</p>
-<p>Learners only need to understand the concepts of files and
-directories (including home and working directories) and know how to
-start GAP.</p>
+<p>Урок орієнтований на студентів, які володіють мінімальною теоретичною
+підготовкою (принаймні на рівні бакалаврського курсу теорії груп) і
+бажають дізнатися, як поняття з абстрактної алгебри можна досліджувати
+за допомогою обчислювальних інструментів. Попередній досвід роботи з GAP
+не потрібен.</p>
+<p>Студентам потрібно лише розуміти поняття файлів і каталогів
+(включаючи домашні та робочі каталоги) і знати, як запустити GAP.</p>
 </div>
 </div>
 </div>
-<div id="getting-ready" class="callout checklist">
+<div id="підготовка" class="callout checklist">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check-square"></i>
 </div>
 <span class="callout-header">Checklist</span>
-<div id="getting-ready" class="callout-inner">
-<h3 class="callout-title">Getting ready</h3>
+<div id="підготовка" class="callout-inner">
+<h3 class="callout-title">Підготовка</h3>
 <div class="callout-content">
-<ol style="list-style-type: decimal"><li>In your home directory, create a new directory called
+<ol style="list-style-type: decimal"><li>У Вашому домашньому каталозі створіть новий каталог під назвою
 <code>avgord</code>.</li>
-<li>Start GAP:</li>
-</ol><ul><li>on Linux and macOS, open the terminal and call
-<code>path-to-your-gap-installation/gap-4.X.Y/gap</code> (edit the path
-as necessary);</li>
-<li>on Windows, start GAP using the Start menu or a desktop shortcut
-created after GAP installation.</li>
-</ul><ol start="3" style="list-style-type: decimal"><li>Set your current directory to <code>avgord</code>:</li>
-</ol><ul><li>on Linux and macOS, call
-<code>ChangeDirectoryCurrent("/Users/username/avgord");</code> (edit the
-path as necessary; remember to type the full path to your home directory
-instead of <code>~</code>).</li>
-<li>on Windows, call
-<code>ChangeDirectoryCurrent("C:/Users/username/avgord");</code> (edit
-the path as necessary; remember to use <code>/</code> instead of
-<code>\</code>);</li>
-</ul><ol start="4" style="list-style-type: decimal"><li>Verify that your current directory is set up properly: call
-<code>DirectoryCurrent();</code> and check that the path in the output
-points to the <code>avgord</code> directory.</li>
+<li>Запустіть GAP:</li>
+</ol><ul><li>в Linux і macOS викличте
+<code>path-to-your-gap-installation/gap-4.X.Y/gap</code> (за потреби
+відредагуйте шлях);</li>
+<li>у Windows, викликайте його через меню Пуск чи ярлик на робочому
+столі, створений після встановлення GAP.</li>
+</ul><ol start="3" style="list-style-type: decimal"><li>Установіть поточний каталог на <code>avgord</code>:</li>
+</ol><ul><li>у Linux та macOS, виконайте команду
+<code>ChangeDirectoryCurrent("/Users/username/avgord");</code> (за
+потреби відредагуйте шлях; не забудьте ввести повний шлях до вашого
+домашнього каталогу замість <code>~</code>).</li>
+<li>у Windows, викличте
+<code>ChangeDirectoryCurrent("C:/Users/username/avgord");</code> (за
+потреби відредагуйте шлях; не забудьте використовувати <code>/</code>
+замість <code>\</code>);</li>
+</ul><ol start="4" style="list-style-type: decimal"><li>Переконайтеся, що ваш поточний каталог налаштовано належним чином:
+викличте <code>DirectoryCurrent();</code> та перевірте, що виведений
+шлях вказує на каталог <code>avgord</code>.</li>
 </ol></div>
 </div>
 </div>
