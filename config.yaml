@@ -88,4 +88,5 @@ profiles:
 
 
 carpentry_description: Lesson Description
+varnish: carpentries/varnish@main
 lang: uk
