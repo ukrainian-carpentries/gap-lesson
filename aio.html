@@ -355,9 +355,9 @@
         
 <section id="aio-01-command-line"><p>Content from <a href="01-command-line.html">Перша сесія з GAP</a></p>
 <hr>
-<p>Останнє оновлення 2026-04-27 |
+<p>Останнє оновлення 2026-04-30 |
 
-        <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/01-command-line.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/01-command-line.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Розгорнути всі відповіді " data-collapse="Згорнути всі відповіді "> Розгорнути всі відповіді <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -415,7 +415,7 @@ gap&gt;</code></pre>
 <p>Щоб вийти з GAP, введіть <code>quit;</code> у командному рядку GAP.
 Пам’ятайте, що всі команди GAP, включно з цією, мають закінчуватися
 крапкою з комою! Потренуйтеся вводити <code>quit;</code>, щоб вийти з
-GAP, а потім починати новий сеанс GAP. Перш ніж продовжити, ви можливо
+GAP, а потім почати новий сеанс GAP. Перш ніж продовжити, ви можливо
 забажаєте ввести наступну команду, щоб відображати запрошення GAP та
 команди, введені користувачем у різних кольорах:</p>
 <div class="codewrapper sourceCode" id="cb2">
@@ -435,38 +435,40 @@ GAP, а потім починати новий сеанс GAP. Перш ніж �
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="op">-</span><span class="fl">6700417</span></span></code></pre>
 </div>
-<p>Якщо ви хочете записати те, що ви робили під час сеансу GAP, щоб ви
-могли переглянути це пізніше, ви можете ввімкнути ведення журналу за
-допомогою функції <code>LogTo</code>, як наведено далі.</p>
+<p>Якщо ви бажаєте, щоб GAP записував усе, що відбувається під час
+роботи з ним, щоб можна було переглянути введені команди та результати
+їх виконання пізніше, ви можете ввімкнути ведення журналу за допомогою
+функції <code>LogTo</code>, як наведено далі.</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="bu">LogTo</span>(<span class="st">"gap-intro.log"</span>)<span class="op">;</span></span></code></pre>
 </div>
-<p>Це створить файл <code>gap-intro.log</code> у поточному каталозі,
-який міститиме всі подальші вхідні та вихідні дані, які з’являтимуться у
+<p>Це створить у поточному каталозі файл <code>gap-intro.log</code>,
+який містить всі подальші вхідні та вихідні дані, які з’являтимуться у
 вашому терміналі. Щоб припинити ведення журналу, ви можете викликати
-<code>LogTo</code> без аргументів, як у <code>LogTo();</code>, або
-залишити GAP. Зауважте, що <code>LogTo</code> очищає файл перед
-запуском, якщо він уже існує!</p>
+<code>LogTo</code> без аргументів, тобто <code>LogTo();</code>, або
+вийти з GAP. Зауважте, що <code>LogTo</code> очищає файл перед запуском,
+якщо він уже існує!</p>
 <p>Може бути корисним залишити кілька коментарів у файлі журналу на
 випадок, якщо ви повернетеся до нього в майбутньому. Коментар у GAP
-починається з символу <code>#</code> і продовжується до кінця рядка. Ви
-можете ввести наступне після підказки GAP:</p>
+починається з символу <code>#</code> та продовжується до кінця рядка. Ви
+можете ввести наступне після запрошення GAP:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb6-1"><a href="#cb6-1" tabindex="-1" aria-label="code-block-6-1"></a>#<span class="co"> Урок Software Carpentry GAP</span></span></code></pre>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb6-1"><a href="#cb6-1" tabindex="-1" aria-label="code-block-6-1"></a>#<span class="co"> Урок з GAP у форматі Software Carpentry</span></span></code></pre>
 </div>
-<p>тоді після натискання клавіші Return GAP відобразить нову підказку,
-але коментар буде записаний у файл журналу.</p>
+<p>Тоді після натискання клавіші Return GAP відобразить нове запрошення,
+але коментар буде записано до файлу журналу.</p>
 <p>Файл журналу записує всю взаємодію з GAP, яка відбувається після
 виклику <code>LogTo</code>, але не раніше. Ми можемо повторити наші
-обчислення вище, якщо ми також хочемо їх записати. Замість того, щоб
+обчислення вище, якщо також хочемо їх записати. Замість того, щоб
 вводити їх повторно, ми будемо використовувати клавіші зі стрілками
-вгору та вниз для прокручування <em>історії командного рядка</em>.
-Повторюйте це, доки знову не побачите формулу, потім натисніть Return
-(розташування курсору в командному рядку не має значення):</p>
+вгору та вниз для перегляду <em>історії командного рядка</em>.
+Натискайте ці клавіші, щоб побачити попередні команди. Коли побачите
+потрібну формулу, натисніть Return (розташування курсору в командному
+рядку не має значення):</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -477,12 +479,13 @@ GAP, а потім починати новий сеанс GAP. Перш ніж �
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="op">-</span><span class="fl">6700417</span></span></code></pre>
 </div>
-<p>Ви також можете редагувати команди, що вже існують. Натисніть клавішу
-«Вгору» ще раз, а потім використовуйте клавіші зі стрілками вліво та
-вправо, Delete або Backspace, щоб відредагувати їх та замінити 32 на 64
-(інші корисні комбінації клавіш — Ctrl-A та Ctrl-E, щоб перемістити
-курсор на початок і кінець рядку, відповідно). Тепер натисніть клавішу
-Return (у будь-якій позиції курсору в командному рядку):</p>
+<p>Ви також можете редагувати команди, які були використані раніше.
+Натисніть клавішу зі стрілкою вгору ще раз, а потім використовуйте
+клавіші зі стрілками вліво та вправо, Delete або Backspace, щоб
+відредагувати цю команду та замінити 32 на 64. Іншими корисними
+комбінаціями клавіш є Ctrl-A та Ctrl-E, які переміщують курсор на
+початок і кінець рядку, відповідно. Тепер натисніть клавішу Return (у
+будь-якій позиції курсору в командному рядку):</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -493,10 +496,10 @@ Return (у будь-якій позиції курсору в командном
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="op">-</span><span class="fl">18446744073709551617</span><span class="op">/</span><span class="fl">641</span></span></code></pre>
 </div>
-<p>Корисно знати, що якщо історія командного рядка велика, можна
-виконати частковий пошук, ввівши початкову частину команди, а потім
-використовуючи клавіші зі стрілками вгору та вниз, щоб прокрутити лише
-ті рядки, які починаються з введених символів.</p>
+<p>Якщо історія командного рядка велика, можна виконати частковий пошук,
+ввівши початкову частину команди, а потім використовуючи клавіші зі
+стрілками вгору та вниз, переглянути лише ті рядки, які починаються з
+введених символів.</p>
 <p>Якщо ви бажаєте зберегти значення для подальшого використання, ви
 можете присвоїти йому ім’я за допомогою <code>:=</code></p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -515,21 +518,22 @@ Return (у будь-якій позиції курсору в командном
 </h3>
 <div class="callout-content">
 <ul>
-<li><p>В інших мовах Ви можете бути більш знайомі з використанням
-<code>=</code>, щоб присвоювати значення змінним, але GAP використовує
-<code>:=</code>.</p></li>
-<li><p>GAP використовує <code>=</code> для порівняння, якщо дві об’єкти
-однакові (де інші мови можуть використовувати <code>==</code>).</p></li>
+<li><p>В інших мовах ви можете частіше зустріти використання
+<code>=</code> для присвоєння значення змінним, але GAP для цього
+використовує <code>:=</code>.</p></li>
+<li><p>GAP використовує <code>=</code>, щоб перевірити, чи два об’єкти
+дорівнюють один одному (інші мови можуть використовувати для цього
+<code>==</code>).</p></li>
 <li><p>Нарешті, GAP використовує <code>&lt;&gt;</code>, щоб перевірити,
-чи два об’єкти не рівні (замість <code>!=</code>, що ви могли бачити
-раніше).</p></li>
+що два об’єкти не рівні (замість <code>!=</code>, що ви могли бачити в
+інших мовах програмування).</p></li>
 </ul>
 </div>
 </div>
 </div>
 <p>Пробільні символи (тобто пробіли, табуляції та символи переводу
 рядка) не мають значення в GAP, за винятком випадків, коли вони
-знаходяться всередині рядка. Наприклад, попереднє введеня можна ввести
+знаходяться всередині рядка. Наприклад, попередню команду можна ввести
 без пробілів:</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -542,9 +546,8 @@ Return (у будь-якій позиції курсору в командном
 <pre class="output" tabindex="0"><code><span><span class="op">-</span><span class="fl">18446744073709551617</span><span class="op">/</span><span class="fl">641</span></span></code></pre>
 </div>
 <p>Пробіли часто використовуються для форматування більш складних команд
-для кращої читабельності. Наприклад, наступне введення, яке створює
-матрицю 3×3: For example, the following input which creates a 3×3
-matrix:</p>
+для кращої читабельності. Наприклад, наступна команда створює матрицю
+3×3:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -556,9 +559,9 @@ matrix:</p>
 <pre class="output" tabindex="0"><code>[ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]</code></pre>
 </div>
 <p>Замість цього ми можемо записати нашу матрицю в 3 рядки. У цьому
-випадку замість повної підказки <code>gap&gt;</code> відображатиметься
-часткова підказка <code>&gt;</code>, доки користувач не завершить
-введення крапкою з комою:</p>
+випадку замість повного запрошення <code>gap&gt;</code>
+відображатиметься часткове запрошення <code>&gt;</code>, доки користувач
+не завершить введення крапкою з комою:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -571,8 +574,8 @@ matrix:</p>
 </h3>
 <pre class="output" tabindex="0"><code>[ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]</code></pre>
 </div>
-<p>Ви можете використовувати <code>Display</code> для красивого друку
-змінних, включаючи цю матрицю:</p>
+<p>Ви можете використовувати <code>Display</code> для відформатованого
+друку змінних, включаючи цю матрицю:</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1111,7 +1114,7 @@ don’t have a length!Нам потрібно перейти на викорис
 <hr>
 <p>Останнє оновлення 2026-04-27 |
 
-        <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/02-some-objects.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/02-some-objects.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Розгорнути всі відповіді " data-collapse="Згорнути всі відповіді "> Розгорнути всі відповіді <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -1377,7 +1380,7 @@ Z(5)^0</code></pre>
 <hr>
 <p>Останнє оновлення 2026-04-27 |
 
-        <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/03-func.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/03-func.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Розгорнути всі відповіді " data-collapse="Згорнути всі відповіді "> Розгорнути всі відповіді <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -1867,9 +1870,9 @@ brk&gt;</code></pre>
 </div>
 </div></section><section id="aio-04-testing"><p>Content from <a href="04-testing.html">Використання регресійних тестів</a></p>
 <hr>
-<p>Останнє оновлення 2026-04-28 |
+<p>Останнє оновлення 2026-04-30 |
 
-        <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/04-testing.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/04-testing.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Розгорнути всі відповіді " data-collapse="Згорнути всі відповіді "> Розгорнути всі відповіді <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -1989,7 +1992,7 @@ GAP, які починаються з <code>#</code>. З цією метою, р
 <span id="cb4-8"><a href="#cb4-8" tabindex="-1" aria-label="code-block-4-8"></a></span>
 <span id="cb4-9"><a href="#cb4-9" tabindex="-1" aria-label="code-block-4-9"></a>#<span class="co"> pc group</span></span>
 <span id="cb4-10"><a href="#cb4-10" tabindex="-1" aria-label="code-block-4-10"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">D</span><span class="op">:=</span><span class="bu">DihedralGroup</span>(<span class="fl">512</span>)<span class="op">;</span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1" aria-label="code-block-4-11"></a></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1" aria-label="code-block-4-11"></a><span class="op">&lt;</span><span class="va">pc</span> <span class="va">group</span> <span class="va">of</span> <span class="va">size</span> <span class="fl">512</span> <span class="va">with</span> <span class="fl">9</span> <span class="va">generators</span><span class="op">&gt;</span></span>
 <span id="cb4-12"><a href="#cb4-12" tabindex="-1" aria-label="code-block-4-12"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">D</span>)<span class="op">;</span></span>
 <span id="cb4-13"><a href="#cb4-13" tabindex="-1" aria-label="code-block-4-13"></a><span class="fl">44203</span><span class="op">/</span><span class="fl">512</span></span>
 <span id="cb4-14"><a href="#cb4-14" tabindex="-1" aria-label="code-block-4-14"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">G</span><span class="op">:=</span><span class="bu">TrivialGroup</span>()<span class="op">;;</span> #<span class="co"> suppress output</span></span>
@@ -1998,9 +2001,9 @@ GAP, які починаються з <code>#</code>. З цією метою, р
 <span id="cb4-17"><a href="#cb4-17" tabindex="-1" aria-label="code-block-4-17"></a></span>
 <span id="cb4-18"><a href="#cb4-18" tabindex="-1" aria-label="code-block-4-18"></a>#<span class="co"> fp group</span></span>
 <span id="cb4-19"><a href="#cb4-19" tabindex="-1" aria-label="code-block-4-19"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">F</span><span class="op">:=</span><span class="bu">FreeGroup</span>(<span class="st">"a"</span><span class="op">,</span><span class="st">"b"</span>)<span class="op">;</span></span>
-<span id="cb4-20"><a href="#cb4-20" tabindex="-1" aria-label="code-block-4-20"></a></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1" aria-label="code-block-4-20"></a><span class="op">&lt;</span><span class="va">free</span> <span class="va">group</span> <span class="va">on</span> <span class="va">the</span> <span class="va">generators</span> [ <span class="va">a</span><span class="op">,</span> <span class="va">b</span> ]<span class="op">&gt;</span></span>
 <span id="cb4-21"><a href="#cb4-21" tabindex="-1" aria-label="code-block-4-21"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">G</span><span class="op">:=</span><span class="va">F</span><span class="op">/</span><span class="va">ParseRelators</span>(<span class="bu">GeneratorsOfGroup</span>(<span class="va">F</span>)<span class="op">,</span><span class="st">"a^8=b^2=1, b^-1ab=a^-1"</span>)<span class="op">;</span></span>
-<span id="cb4-22"><a href="#cb4-22" tabindex="-1" aria-label="code-block-4-22"></a></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1" aria-label="code-block-4-22"></a><span class="op">&lt;</span><span class="va">fp</span> <span class="va">group</span> <span class="va">on</span> <span class="va">the</span> <span class="va">generators</span> [ <span class="va">a</span><span class="op">,</span> <span class="va">b</span> ]<span class="op">&gt;</span></span>
 <span id="cb4-23"><a href="#cb4-23" tabindex="-1" aria-label="code-block-4-23"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="bu">IsFinite</span>(<span class="va">G</span>)<span class="op">;</span></span>
 <span id="cb4-24"><a href="#cb4-24" tabindex="-1" aria-label="code-block-4-24"></a><span class="cn">true</span></span>
 <span id="cb4-25"><a href="#cb4-25" tabindex="-1" aria-label="code-block-4-25"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">G</span>)<span class="op">;</span></span>
@@ -2141,7 +2144,7 @@ GAP.</li>
 <hr>
 <p>Останнє оновлення 2026-04-27 |
 
-        <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/05-small-groups.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/05-small-groups.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Розгорнути всі відповіді " data-collapse="Згорнути всі відповіді "> Розгорнути всі відповіді <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -2701,7 +2704,7 @@ Small Groups Library (порядок не дорівнює 1536)?</p></li>
 <hr>
 <p>Останнє оновлення 2026-04-28 |
 
-        <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/06-attributes.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/06-attributes.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Розгорнути всі відповіді " data-collapse="Згорнути всі відповіді "> Розгорнути всі відповіді <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -3021,13 +3024,13 @@ comments.</p></li>
         <p>Цей урок регулюється <a href="CODE_OF_CONDUCT.html">Кодексом поведінки</a></p>
         <p>
 
-        <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/README.md" class="external-link">Редагувати на GitHub</a>
+        <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/README.md" class="external-link">Редагувати на GitHub</a>
 
 	
-        | <a href="https://github.com/carpentries-incubator/gap-lesson/blob/main/CONTRIBUTING.md" class="external-link">Як допомогти?</a>
-        | <a href="https://github.com/carpentries-incubator/gap-lesson/" class="external-link">Вихідні файли уроку</a></p>
+        | <a href="https://github.com/ukrainian-carpentries/gap-lesson/blob/main/CONTRIBUTING.md" class="external-link">Як допомогти?</a>
+        | <a href="https://github.com/ukrainian-carpentries/gap-lesson/" class="external-link">Вихідні файли уроку</a></p>
         <p>
-        <a href="https://github.com/carpentries-incubator/gap-lesson/blob/main/" class="external-link">Цитувати</a>
+        <a href="https://github.com/ukrainian-carpentries/gap-lesson/blob/main/" class="external-link">Цитувати</a>
         | <a href="mailto:obk1@st-andrews.ac.uk">Контакти</a> | <a href="https://carpentries.org/about/" class="external-link">Інформація</a></p>
 		</div>
 		<div class="col-md-6">
@@ -3048,15 +3051,15 @@ comments.</p></li>
     {
   "@context": "https://schema.org",
   "@type": "LearningResource",
-  "@id": "https://carpentries-incubator.github.io/gap-lesson/aio.html",
+  "@id": "https://ukrainian-carpentries.github.io/gap-lesson/aio.html",
   "inLanguage": "uk",
   "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
   "keywords": "software, data, lesson, The Carpentries",
   "name": "Все на одній сторінці",
   "creativeWorkStatus": "active",
-  "url": "https://carpentries-incubator.github.io/gap-lesson/aio.html",
-  "identifier": "https://carpentries-incubator.github.io/gap-lesson/aio.html",
+  "url": "https://ukrainian-carpentries.github.io/gap-lesson/aio.html",
+  "identifier": "https://ukrainian-carpentries.github.io/gap-lesson/aio.html",
   "dateCreated": "2014-10-21",
   "dateModified": "2026-04-30",
   "datePublished": "2026-04-30"

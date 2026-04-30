@@ -301,32 +301,30 @@
       <hr></nav><main id="main-content" class="main-content"><h1 class="schedule-heading">Передмова і налаштування</h1>
       
 
-<p><a href="http://www.gap-system.org" class="external-link">GAP</a> — система дискретної
-обчислювальної алгебри з особливим акцентом на теорії обчислювальних
-груп. GAP надає мову програмування, бібліотеку тисяч функцій, що
-реалізують алгебраїчні алгоритми, написані мовою GAP, а також великі
-бібліотеки даних алгебраїчних об’єктів, наприклад, <a href="https://gap-packages.github.io/smallgrp/" class="external-link">Бібліотека малих
-груп</a>, яка містить, серед іншого, усі 423 164 062 групи порядку не
-більше 2000, крім 1024.</p>
-<p>У цьому уроці представлено введення в GAP. Він зосереджений навколо
-спільного завдання пошуку в бібліотеці малих груп цікавих прикладів і
-контрприкладів, а конкретна дослідницька проблема, в якій ми будемо
-зацікавлені, полягає в тому, щоб <strong>знайти приклади нетривіальних
-груп, таких, що середній порядок їх елементів є цілим
+<p><a href="https://www.gap-system.org" class="external-link">GAP</a> — система дискретної
+обчислювальної алгебри з особливим акцентом на теорію груп. GAP надає
+мову програмування, бібліотеку тисяч функцій, що реалізують алгебраїчні
+алгоритми, написані мовою GAP, а також великі бібліотеки даних
+алгебраїчних об’єктів, наприклад, <a href="https://gap-packages.github.io/smallgrp/" class="external-link">Small Groups
+Library</a>, яка містить, серед іншого, усі 423 164 062 групи порядку не
+більше 2000, крім порядку 1024.</p>
+<p>Цей урок є вступом до системи GAP. Він зосереджений навколо загальної
+проблеми пошуку в бібліотеці груп малих порядків (Small Groups Library)
+цікавих прикладів і контрприкладів. Конкретна дослідницька проблема, в
+якій ми будемо зацікавлені, полягає в тому, щоб <strong>знайти приклади
+нетривіальних груп, таких, що середній порядок їх елементів є цілим
 числом</strong>.</p>
-<p>Урок проведе студента по шляху від роботи в командному рядку GAP та
-вивчення алгебраїчних об’єктів в інтерактивному режимі до збереження
-коду GAP у файли, створення функцій і регресійних тестів, а також до
-виконання всебічного пошуку та розширення системи шляхом додавання нових
-атрибутів.</p>
-<p>На цьому шляху студент ознайомиться з:</p>
-<ul><li><ul><li>основні конструкції мови програмування GAP,</li>
-</ul></li>
-<li><ul><li>способи пошуку необхідної інформації в системі GAP і</li>
-</ul></li>
-<li><ul><li>хороші практики проектування для організації коду GAP у складні
-програми.</li>
-</ul></li>
+<p>Урок проведе слухача від роботи в командному рядку GAP та взаємодії з
+алгебраїчними об’єктами в інтерактивному режимі до збереження коду GAP у
+файли, створення функцій і регресійних тестів, а далі до виконання
+систематичного пошуку прикладів або контрприкладів, та розширення
+системи шляхом додавання власних атрибутів до їснуючих типів
+обʼєктів.</p>
+<p>На цьому шляху слухач ознайомиться з:</p>
+<ul><li><p>основними конструкціями мови програмування GAP;</p></li>
+<li><p>способами пошуку необхідної інформації в системі GAP;</p></li>
+<li><p>корисними практиками організації коду GAP для наукових
+досліджень.</p></li>
 </ul><div id="передумови" class="callout prereq">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check"></i>
@@ -335,13 +333,13 @@
 <div id="передумови" class="callout-inner">
 <h3 class="callout-title">Передумови</h3>
 <div class="callout-content">
-<p>Урок орієнтований на студентів, які володіють мінімальною теоретичною
+<p>Урок орієнтований на слухачів, які володіють мінімальною теоретичною
 підготовкою (принаймні на рівні бакалаврського курсу теорії груп) і
 бажають дізнатися, як поняття з абстрактної алгебри можна досліджувати
 за допомогою обчислювальних інструментів. Попередній досвід роботи з GAP
 не потрібен.</p>
-<p>Студентам потрібно лише розуміти поняття файлів і каталогів
-(включаючи домашні та робочі каталоги) і знати, як запустити GAP.</p>
+<p>Слухачам достатньо розуміти поняття файлів і каталогів (включаючи
+домашні та робочі каталоги) і знати, як запустити GAP.</p>
 </div>
 </div>
 </div>
@@ -359,9 +357,9 @@
 </ol><ul><li>в Linux і macOS викличте
 <code>path-to-your-gap-installation/gap-4.X.Y/gap</code> (за потреби
 відредагуйте шлях);</li>
-<li>у Windows, викликайте його через меню Пуск чи ярлик на робочому
-столі, створений після встановлення GAP.</li>
-</ul><ol start="3" style="list-style-type: decimal"><li>Установіть поточний каталог на <code>avgord</code>:</li>
+<li>у Windows, викличте GAP через меню Пуск чи ярлик на робочому столі,
+створений після встановлення GAP.</li>
+</ul><ol start="3" style="list-style-type: decimal"><li>Змініть поточний каталог на <code>avgord</code>:</li>
 </ol><ul><li>у Linux та macOS, виконайте команду
 <code>ChangeDirectoryCurrent("/Users/username/avgord");</code> (за
 потреби відредагуйте шлях; не забудьте ввести повний шлях до вашого
@@ -379,34 +377,34 @@
 
 
       <section id="setup"><section><h2 class="section-heading" id="windows">Windows<a class="anchor" aria-label="anchor" href="#windows"></a></h2>
-<hr class="half-width"><p>На <a href="http://www.gap-system.org/Releases/" class="external-link">сторінці завантажень
-GAP</a>, завантажте інсталятор <code>.exe</code> і двічі клацніть файл,
-щоб запустити його. Коли вас запитають про шлях інсталяції, зверніть
-увагу, що він не повинен містити пробілів. Наприклад, ви можете
-встановити GAP 4.X.Y у <code>C:\gap-4.X.Y</code> (за замовчуванням),
+<hr class="half-width"><p>Завантажте та запустіть інсталятор для Windows у форматі
+<code>.exe</code> із <a href="http://www.gap-system.org/Releases/" class="external-link">сторінки завантажень GAP</a>.
+Коли будете вказувати місце інсталяції, зверніть увагу, що шлях не
+повинен містити пробілів. Наприклад, ви можете встановити GAP 4.X.Y у
+каталозі <code>C:\gap-4.X.Y</code> (за замовчуванням),
 <code>D:\gap-4.X.Y</code> чи <code>C:\Math\GAP\gap-4.X.Y</code>, але ви
-не повинні інсталювати його в такий каталог, як
+не повинні встановлювати його в такий каталог, як
 <code>C:\Program Files\gap-4.X.Y</code> чи
 <code>C:\Users\alice\My Documents\gap-4.X.Y</code>.</p>
 </section><section><h2 class="section-heading" id="macos">macOS<a class="anchor" aria-label="anchor" href="#macos"></a></h2>
-<hr class="half-width"><p>В OS X Вам потрібно інсталювати GAP із джерела, як описано на <a href="http://www.gap-system.org/Releases/" class="external-link">сторінці завантажень GAP</a>.
-Завантажте один із архівів, наданих там, розпакуйте його та запустіть
+<hr class="half-width"><p>В macOS GAP потрібно встановити з вихідного коду, як описано на <a href="http://www.gap-system.org/Releases/" class="external-link">сторінці завантажень GAP</a>.
+Завантажте один з архівів, наданих там, розпакуйте його та запустіть
 <code>./configure &amp;&amp; make</code> у розпакованому каталозі. Потім
-перейдіть до підкаталогу <code>pkg</code> і викличте
-<code>../bin/BuildPackages.sh</code>, щоб запустити сценарій, який
-створить більшість пакетів, які потребують компіляції (за умови
+перейдіть до підкаталогу <code>pkg</code> і виконайте команду
+<code>../bin/BuildPackages.sh</code>, щоб запустити скрипт, який
+встановить більшість пакетів, які потребують компіляції (за умови
 наявності достатньої кількості бібліотек, заголовків і
 інструментів).</p>
-<p>Крім того, ви також можете встановити GAP за допомогою <a href="http://brew.sh/" class="external-link">Homebrew</a>. Після встановлення Homebrew
+<p>Крім того, GAP можна також встановити GAP за допомогою <a href="http://brew.sh/" class="external-link">Homebrew</a>. Після встановлення Homebrew
 дотримуйтесь інструкцій для <a href="https://github.com/gap-system/homebrew-gap" class="external-link">GAP Homebrew
 tap</a>.</p>
 </section><section><h2 class="section-heading" id="linux">Linux<a class="anchor" aria-label="anchor" href="#linux"></a></h2>
-<hr class="half-width"><p>У Linux вам потрібно встановити GAP із джерела, як описано на <a href="http://www.gap-system.org/Releases/" class="external-link">сторінці завантажень GAP</a>.
-Завантажте один із наданих там архівів, розпакуйте його та запустіть
+<hr class="half-width"><p>У Linux GAP потрібно встановити з вихідного коду, як описано на <a href="http://www.gap-system.org/Releases/" class="external-link">сторінці завантажень GAP</a>.
+Завантажте один з архівів, наданих там, розпакуйте його та запустіть
 <code>./configure &amp;&amp; make</code> у розпакованому каталозі. Потім
-перейдіть до підкаталогу <code>pkg</code> і викличте
-<code>../bin/BuildPackages.sh</code>, щоб запустити сценарій, який
-створить більшість пакетів, які потребують компіляції (за умови
+перейдіть до підкаталогу <code>pkg</code> і виконайте команду
+<code>../bin/BuildPackages.sh</code>, щоб запустити скрипт, який
+встановить більшість пакетів, які потребують компіляції (за умови
 наявності достатньої кількості бібліотек, заголовків і
 інструментів).</p>
 </section></section></main><nav class="bottom-pagination mx-md-4" aria-label="Наступний розділ"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
@@ -424,13 +422,13 @@ tap</a>.</p>
         <p>Цей урок регулюється <a href="CODE_OF_CONDUCT.html">Кодексом поведінки</a></p>
         <p>
 
-        <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/index.md" class="external-link">Редагувати на GitHub</a>
+        <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/index.md" class="external-link">Редагувати на GitHub</a>
 
 	
-        | <a href="https://github.com/carpentries-incubator/gap-lesson/blob/main/CONTRIBUTING.md" class="external-link">Як допомогти?</a>
-        | <a href="https://github.com/carpentries-incubator/gap-lesson/" class="external-link">Вихідні файли уроку</a></p>
+        | <a href="https://github.com/ukrainian-carpentries/gap-lesson/blob/main/CONTRIBUTING.md" class="external-link">Як допомогти?</a>
+        | <a href="https://github.com/ukrainian-carpentries/gap-lesson/" class="external-link">Вихідні файли уроку</a></p>
         <p>
-        <a href="https://github.com/carpentries-incubator/gap-lesson/blob/main/" class="external-link">Цитувати</a>
+        <a href="https://github.com/ukrainian-carpentries/gap-lesson/blob/main/" class="external-link">Цитувати</a>
         | <a href="mailto:obk1@st-andrews.ac.uk">Контакти</a> | <a href="https://carpentries.org/about/" class="external-link">Інформація</a></p>
 		</div>
 		<div class="col-md-6">
@@ -450,15 +448,15 @@ tap</a>.</p>
     {
   "@context": "https://schema.org",
   "@type": "LearningResource",
-  "@id": "https://carpentries-incubator.github.io/gap-lesson/index.html",
+  "@id": "https://ukrainian-carpentries.github.io/gap-lesson/index.html",
   "inLanguage": "uk",
   "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
   "keywords": "software, data, lesson, The Carpentries",
   "name": "Programming with GAP",
   "creativeWorkStatus": "active",
-  "url": "https://carpentries-incubator.github.io/gap-lesson/index.html",
-  "identifier": "https://carpentries-incubator.github.io/gap-lesson/index.html",
+  "url": "https://ukrainian-carpentries.github.io/gap-lesson/index.html",
+  "identifier": "https://ukrainian-carpentries.github.io/gap-lesson/index.html",
   "dateCreated": "2014-10-21",
   "dateModified": "2026-04-30",
   "datePublished": "2026-04-30"
