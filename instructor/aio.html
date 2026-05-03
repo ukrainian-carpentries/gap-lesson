@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Programming with GAP: Все на одній сторінці</title>
+<title>Програмування у системі компʼютерної алгебри GAP: Все на одній сторінці</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="../assets/themetoggle.js"></script><link rel="stylesheet" type="text/css" href="../assets/styles.css">
 <script src="../assets/scripts.js" type="text/javascript"></script><!-- mathjax --><!-- NOTE: https://docs.mathjax.org/en/latest/output/mathml.html#mathml-support --><!-- Changes from V2 to V4: https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
@@ -90,7 +90,7 @@
       <img class="small-logo" alt="Lesson Description" src="../assets/images/incubator-logo-sm.svg">
 </div>
     <div class="lesson-title-md">
-      Programming with GAP
+      Програмування у системі компʼютерної алгебри GAP
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
@@ -101,7 +101,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
           <span class="lesson-title">
-            Programming with GAP
+            Програмування у системі компʼютерної алгебри GAP
           </span>
         </li>
         <li class="nav-item">
@@ -357,7 +357,7 @@
         
 <section id="aio-01-command-line"><p>Content from <a href="01-command-line.html">Перша сесія з GAP</a></p>
 <hr>
-<p>Останнє оновлення 2026-04-30 |
+<p>Останнє оновлення 2026-05-03 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/01-command-line.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Приблизний час: <i aria-hidden="true" data-feather="clock"></i> 40 хвилин</p>
@@ -594,16 +594,16 @@ GAP, а потім почати новий сеанс GAP. Перш ніж пр�
 <p>Загалом функції GAP, як наприклад <code>LogTo</code> і
 <code>Display</code>, викликаються за допомогою дужок, які містять
 (можливо, порожній) список аргументів.</p>
-<div id="функції-також-є-обєктами-gap" class="callout">
+<div id="функції---це-також-обєкти-у-gap" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Виноска</span>
-<div id="функції-також-є-обєктами-gap" class="callout-inner">
-<h3 class="callout-title">Функції також є об’єктами GAP</h3>
+<div id="функції---це-також-обєкти-у-gap" class="callout-inner">
+<h3 class="callout-title">Функції - це також об’єкти у GAP</h3>
 <div class="callout-content">
 <p>Перевірте, що станеться, якщо ви забудете додати дужки, наприклад,
-введіть <code>LogTo;</code> і <code>Factorial;</code> Пізніше ми
+введіть <code>LogTo;</code> та <code>Factorial;</code> Пізніше ми
 пояснимо відмінності в цих результатах.</p>
 </div>
 </div>
@@ -645,11 +645,11 @@ GAP, а потім почати новий сеанс GAP. Перш ніж пр�
 <pre class="output" tabindex="0"><code>[ 3, 5, 17, 257, 641, 65537, 6700417 ]</code></pre>
 </div>
 <p>Функції можна комбінувати різними способами та використовувати як
-аргументи інших функцій, наприклад, функція <code>Filtered</code>
-приймає список і функцію, повертаючи всі елементи списку, які
-задовольняють функцію. <code>IsEvenInt</code> (“Is Even Integer” з англ.
-“чи є ціле число парним”), як не дивно, перевіряє, чи є ціле число
-парним!</p>
+аргументи інших функцій. Наприклад, функція <code>Filtered</code>
+сприймає список і функцію, повертаючи всі елементи списку, які
+задовольняють умову, яку перевіряє функція. Зовсім не дивно, що функція
+<code>IsEvenInt</code> (“Is Even Integer” з англ. “чи є ціле число
+парним”) перевіряє, чи є ціле число парним:</p>
 <div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -658,12 +658,12 @@ GAP, а потім почати новий сеанс GAP. Перш ніж пр�
 <div class="codewrapper">
 <h3 class="code-label">ВИХІД<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code></code></pre>
+<pre class="output" tabindex="0"><code>[ 2, 6, 4 ]</code></pre>
 </div>
 <p>Корисною функцією інтерфейсу командного рядка GAP, яка економить час,
-є заповнення ідентифікаторів під час натискання клавіші Tab. Наприклад,
-введіть <code>Fib</code>, а потім натисніть клавішу Tab, щоб завершити
-введення <code>Fibonacci</code>:</p>
+є автодоповнення ідентифікаторів під час натискання клавіші Tab.
+Наприклад, введіть <code>Fib</code>, а потім натисніть клавішу Tab, щоб
+автоматично завершити введений текст до <code>Fibonacci</code>:</p>
 <div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -679,13 +679,13 @@ GAP, а потім почати новий сеанс GAP. Перш ніж пр�
 можливі доповнення ідентифікатора. Спробуйте, наприклад, ввести
 <code>GroupHomomorphismByImages</code> або
 <code>NaturalHomomorphismByNormalSubgroup</code> за допомогою
-доповнення.</p>
+автодоповнення.</p>
 <p>Сподіваємось, те, як функції називаються в GAP, допоможе вам
 запам’ятовувати або навіть вгадувати назви бібліотечних функцій. Якщо
 назва змінної складається з кількох слів, то перша літера кожного слова
 пишеться з великої літери (пам’ятайте, що GAP чутливий до регістру!).
 Подальші відомості про правила іменування, які використовуються в GAP,
-задокументовані в посібнику GAP <a href="http://www.gap-system.org/Manuals/doc/ref/chap5.html#X81F732457F7BC851" class="external-link">тут</a>.
+задокументовані в документації GAP <a href="https://www.gap-system.org/Manuals/doc/ref/chap5.html#X81F732457F7BC851" class="external-link">тут</a>.
 Функції з назвами <code>У_ВЕРХНЬОМУ_РЕГІСТРІ</code> є внутрішніми
 функціями, не призначеними для загального використання. Використовуйте
 їх з особливою обережністю!</p>
@@ -702,14 +702,14 @@ GAP, а потім почати новий сеанс GAP. Перш ніж пр�
 <pre class="error" tabindex="0"><code>Error, Variable: 'factorial' must have a value
 not in any function at line 14 of *stdin*</code></pre>
 </div>
-<p>тому що назва функції бібліотеки GAP – <code>Factorial</code>.
-Використання малих літер замість великих або навпаки також впливає на
-доповнення назви.</p>
-<p>Тепер давайте розглянемо таку задачу: для скінченної групи <em>G</em>
+<p>тому що назва цієї функції GAP – <code>Factorial</code>. Використання
+малих літер замість великих або навпаки також впливає на автодоповнення
+назви.</p>
+<p>Тепер розглянемо таку задачу: для скінченної групи <em>G</em>
 обчислити середній порядок її елементів (тобто суму порядків її
 елементів, поділену на порядок групи). З чого почати?</p>
-<p>Введіть <code>?Group</code>, і ви побачите всі записи довідкової
-системи, що починаються з <code>Group</code>:</p>
+<p>Введіть <code>?Group</code>, щоб побачити всі записи довідкової
+системи, що починаються із <code>Group</code>:</p>
 <div class="codewrapper">
 <h3 class="code-label">ВИХІД<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -746,34 +746,36 @@ not in any function at line 14 of *stdin*</code></pre>
 потім натисніть <code>q</code>, щоб повернутися до меню вибору. Далі
 перейдіть до елементу <code>Reference: Groups</code> і відкрийте його.
 На перших двох сторінках ви знайдете функцію <code>Group</code> та
-згадку <code>Order</code>.</p>
-<p>Посібник GAP доступний у кількох форматах: текстовий зручний для
-перегляду в терміналі, PDF зручний для друку, а HTML (особливо з
-підтримкою MathJax) дуже ефективний для перегляду за допомогою браузера.
-Якщо ви використовуєте GAP на власному комп’ютері, ви можете встановити
-для перегляду довідки браузер за замовчуванням. If you are running GAP
-on a remote machine, this (probably) will not work. (see
-<code>?WriteGapIniFile</code> on how to make this setting
-permanent):</p>
+згадку про функцію <code>Order</code>.</p>
+<p>Документація GAP доступна у кількох форматах: текстовий формат
+зручний для перегляду в терміналі, PDF зручний для друку, а HTML
+(особливо з підтримкою MathJax) дуже ефективний для перегляду за
+допомогою браузера. Якщо ви використовуєте GAP на власному комп’ютері,
+ви можете налаштувати GAP так, щоб він відкривав довідку за допомогою
+вашого браузера за замовчуванням. (це навряд чи спрацює, якщо ви
+використовуєте віддалене підключення). Дивіться
+<code>?WriteGapIniFile</code> про те, як зробити це налаштування
+постійним:</p>
 <div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb33-1"><a href="#cb33-1" tabindex="-1" aria-label="code-block-33-1"></a><span class="bu">SetHelpViewer</span>(<span class="st">"browser"</span>)<span class="op">;</span></span></code></pre>
 </div>
 <p>Після цього викличте довідку знову та побачите різницю!</p>
-<p>Давайте тепер скопіюємо наступні вхідні дані з першого прикладу глави
-довідкового посібника GAP про групи. У ньому показано, як створювати
-перестановки та присвоювати значення змінним. Це
+<p>Давайте тепер скопіюємо наступні вхідні дані з першого прикладу з
+глави про групи у довідковому посібнику GAP. У ньому показано, як
+створювати перестановки та присвоювати значення змінним. Це
 <code>Reference: Groups</code>. Ви можете вибрати його, ввівши
 <code>?11</code>, де ви заміните <code>11</code> на те значення, яке
 з’явиться перед <code>Reference: Groups</code> на вашому комп’ютері.</p>
 <p>Якщо ви переглядаєте документацію GAP у терміналі, вам може бути
 корисно відкрити дві копії GAP, одну для читання документації та одну
 для написання коду!</p>
-<p>Цей посібник показує, як перестановки в GAP записуються в циклічній
-нотації, а також показує загальні функції, які використовуються з
-групами. Крім того, у деяких місцях використовуються дві крапки з комою
-в кінці рядка. Це не дозволить GAP показувати результат обчислення.</p>
+<p>Ця документація показує, як перестановки в GAP записуються в
+циклічній нотації, а також показує загальні функції, які
+використовуються з групами. Крім того, у деяких місцях використовуються
+дві крапки з комою в кінці рядка. Це зупиняє зображення результатів
+обчислень.</p>
 <div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -792,7 +794,7 @@ permanent):</p>
 <pre class="output" tabindex="0"><code>Group([ (1,2,3), (2,3,4) ])</code></pre>
 </div>
 <p>Ми можемо дослідити деякі властивості групи <code>G</code> та її
-породжувачів:</p>
+твірних:</p>
 <div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -806,13 +808,13 @@ permanent):</p>
 <span><span class="st">"A4"</span></span>
 <span><span class="fl">3</span></span></code></pre>
 </div>
-<p>Нашим наступним завданням є з’ясувати, як отримати список елементів
+<p>Нашою наступною метою є з’ясувати, як отримати список елементів
 <code>G</code> та їх порядок. Введіть <code>?elements</code> і
-перегляньте список тем довідки. Після перевірки запис у Tutorial не
-здається актуальним, але є запис у довідковому посібнику (Reference).
-Тут також пояснюється різниця між використанням
-<code>AsSSortedList</code> і <code>AsList</code>. Отже, це список
-елементів <code>G</code>:</p>
+перегляньте список тем довідки. Після перевірки, інформація з Tutorial
+не здається доречною, але вміст розділу у довідковому посібнику
+(Reference) є корисним. Він також пояснює різницю між використанням
+<code>AsSSortedList</code> та <code>AsList</code>. Отже, так ми
+отримуємо список елементів <code>G</code>:</p>
 <div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -826,11 +828,11 @@ permanent):</p>
 </div>
 <p>Повернений об’єкт є <em>списком</em>. Ми хотіли б призначити його
 змінній для дослідження та повторного використання. Ми забули це
-зробити, коли обчислювали. Звичайно, ми можемо використовувати історію
-командного рядка, щоб відновити останню команду, відредагувати її та
-викликати знову. Але замість цього ми будемо використовувати
-<code>last</code>, яка є спеціальною змінною, що містить останній
-результат, повернутий GAP:</p>
+зробити, коли обчислювали його перший раз. Звичайно, ми можемо
+використати історію командного рядка, щоб відновити останню команду,
+відредагувати її та викликати знову. Але замість цього ми будемо
+використовувати <code>last</code>, яка є спеціальною змінною, що містить
+останній результат, який повернув GAP:</p>
 <div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -869,7 +871,7 @@ permanent):</p>
 <li><p>Може динамічно змінювати їх довжину (за допомогою
 <code>Add</code>, <code>Append</code> або прямого призначення)</p></li>
 <li><p>Не обов’язково містить об’єкти одного типу</p></li>
-<li><p>Дивіться більше в <a href="http://www.gap-system.org/Manuals/doc/tut/chap3.html" class="external-link">GAP
+<li><p>Дивіться більше в <a href="https://www.gap-system.org/Manuals/doc/tut/chap3.html" class="external-link">GAP
 Tutorial: Lists and Records</a></p></li>
 </ul>
 </div>
@@ -1875,7 +1877,7 @@ brk&gt;</code></pre>
 </div>
 </div></section><section id="aio-04-testing"><p>Content from <a href="04-testing.html">Використання регресійних тестів</a></p>
 <hr>
-<p>Останнє оновлення 2026-04-30 |
+<p>Останнє оновлення 2026-05-03 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/04-testing.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Приблизний час: <i aria-hidden="true" data-feather="clock"></i> 50 хвилин</p>
@@ -1961,7 +1963,7 @@ GAP, які починаються з <code>#</code>. З цією метою, р
 вважаються коментарями. Усі інші рядки інтерпретуються як вихід GAP із
 попереднього введення GAP.</p>
 <p>Щоб запустити тест, слід використовувати функцію <code>Test</code>,
-як описано в документації <a href="http://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C" class="external-link">тут</a>.
+як описано в документації <a href="https://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C" class="external-link">тут</a>.
 Наприклад (за умови, що функція <code>AvgOrdOfGroup</code> вже
 завантажена):</p>
 <div class="codewrapper sourceCode" id="cb2">
@@ -2148,7 +2150,7 @@ GAP.</li>
 </div>
 </div></section><section id="aio-05-small-groups"><p>Content from <a href="05-small-groups.html">Пошук малих груп</a></p>
 <hr>
-<p>Останнє оновлення 2026-04-27 |
+<p>Останнє оновлення 2026-05-03 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/05-small-groups.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Приблизний час: <i aria-hidden="true" data-feather="clock"></i> 55 хвилин</p>
@@ -2185,8 +2187,8 @@ GAP.</li>
 <p>У цьому розділі ми хочемо відкрити деякі нетривіальні групи з цікавою
 властивістю, а саме, що середній порядок їхніх елементів є цілим
 числом.</p>
-<p>Дистрибутив GAP включає низку бібліотек даних (див. огляд <a href="http://www.gap-system.org/Datalib/datalib.html" class="external-link">here</a>). Однією
-з них є <a href="http://www.gap-system.org/Packages/sgl.html" class="external-link">Small
+<p>Дистрибутив GAP включає низку бібліотек даних (див. огляд <a href="https://www.gap-system.org/Datalib/datalib.html" class="external-link">here</a>). Однією
+з них є <a href="https://www.gap-system.org/Packages/sgl.html" class="external-link">Small
 Groups Library</a> Ганса Ульріха Беше, Беттіни Айк та Імона
 О’Брайена.</p>
 <p>Ця бібліотека надає різні утиліти для визначення того, яка інформація
@@ -2410,7 +2412,7 @@ gap&gt; List(last,IdGroup);
 [ 105, 1 ]</code></pre>
 </div>
 <p>Щоб дослідити її далі, ми можемо отримати її
-<code>StructureDescription</code> (див. <a href="http://www.gap-system.org/Manuals/doc/ref/chap39.html#X87BF1B887C91CA2E" class="external-link">тут</a>
+<code>StructureDescription</code> (див. <a href="https://www.gap-system.org/Manuals/doc/ref/chap39.html#X87BF1B887C91CA2E" class="external-link">тут</a>
 для пояснення нотації, яку використано):</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3069,8 +3071,8 @@ comments.</p></li>
   "url": "https://ukrainian-carpentries.github.io/gap-lesson/instructor/aio.html",
   "identifier": "https://ukrainian-carpentries.github.io/gap-lesson/instructor/aio.html",
   "dateCreated": "2014-10-21",
-  "dateModified": "2026-04-30",
-  "datePublished": "2026-04-30"
+  "dateModified": "2026-05-03",
+  "datePublished": "2026-05-03"
 }
 
   </script><script>
