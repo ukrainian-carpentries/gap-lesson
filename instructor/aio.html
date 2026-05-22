@@ -278,7 +278,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05-small-groups.html">5. Пошук малих груп</a>
+        <a href="05-small-groups.html">5. Пошук груп малих порядків</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -1389,7 +1389,7 @@ Z(5)^0</code></pre>
 </div>
 </div></section><section id="aio-03-func"><p>Content from <a href="03-func.html">Функції в GAP</a></p>
 <hr>
-<p>Останнє оновлення 2026-05-16 |
+<p>Останнє оновлення 2026-05-22 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/03-func.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Приблизний час: <i aria-hidden="true" data-feather="clock"></i> 55 хвилин</p>
@@ -1416,7 +1416,7 @@ Z(5)^0</code></pre>
 <ul>
 <li>Використання командного рядка для прототипування</li>
 <li>Створення функцій</li>
-<li>Читання GAP-коду з файлу</li>
+<li>Завантаження GAP-коду з файлу</li>
 </ul>
 </div>
 </div>
@@ -1426,8 +1426,8 @@ Z(5)^0</code></pre>
 <p>Нагадаємо наше завдання: для скінченної групи <em>G</em> ми хотіли б
 обчислити середній порядок її елементів (тобто суму порядків її
 елементів, поділену на порядок групи).</p>
-<p>Ми почнемо з дуже прямого підходу, перебираючи всі елементи групи, з
-якою ми працюємо:</p>
+<p>Ми почнемо з прямого підходу, перебираючи всі елементи групи, з якою
+ми працюємо:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1463,8 +1463,9 @@ Z(5)^0</code></pre>
 </div>
 <p>Тепер припустімо, що ми хочемо зберегти цей фрагмент коду GAP і
 пізніше повторити цей розрахунок для деяких інших груп. Ми навіть можемо
-переформатувати його, щоб помістити в один рядок, і використати подвійну
-крапку з комою, щоб не виводити значення змінної <code>sum</code>:</p>
+переформатувати його, щоб помістити в один рядок, і використати крапку з
+комою двічі, щоб не виводити на екран значення змінної
+<code>sum</code>:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1478,9 +1479,8 @@ Z(5)^0</code></pre>
 <p>Тепер ми можемо легко скопіювати та вставити його в командний рядок
 GAP наступного разу, коли він нам знадобиться. Але тут ми бачимо першу
 незручність: код очікує, що група, про яку йде мова, має бути збережена
-в змінній з іменем <code>S</code>, тому або ми повинні визначати
-<code>S</code> знов кожного разу, або редагувати код, змінюючи імʼя
-групи:</p>
+в змінній <code>S</code>, тому або ми повинні визначати <code>S</code>
+знов кожного разу, або редагувати код, використовуючи іншу змінну:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1515,8 +1515,8 @@ GAP наступного разу, коли він нам знадобиться
 неповне введення може призвести до повідомлення про помилку;</li>
 <li>ще небезпечніше: можна забути знов встановити <code>sum</code> на
 нуль перед новим обчисленням і отримати неправильні результати;</li>
-<li>група, про яку йде мова, може міститися в іншій змінній, і тому код
-доведеться змінити;</li>
+<li>група, яка розглядається, може зберігатися в іншій змінній, і тому
+код доведеться змінити;</li>
 <li>
 <strong>останнє, але не менш важливе:</strong> коли код GAP
 вставляється в інтерпретатор командного рядка, він виконується рядок за
@@ -1532,11 +1532,11 @@ GAP наступного разу, коли він нам знадобиться
 організувавши його у функції:</p>
 <ul>
 <li>функції спочатку читаються та аналізуються, а їх фактичне виконання
-буде виконано пізніше під час їх виклику;</li>
+відбувається пізніше під час їх виклику;</li>
 <li>будь-які <strong>синтаксичні</strong> помилки будуть виявлені на
 етапі аналізу, а не під час виклику;</li>
 <li>функції можуть мати локальні змінні, і це запобігає випадковому
-перезапису змінних у разі повторного використання того самого імені
+перезапису змінних у разі повторного використання тієї самої назви
 змінної для зберігання чогось іншого поза межами функції.</li>
 </ul>
 <p>Наступна функція приймає аргумент <code>G</code> і обчислює середній
@@ -1558,7 +1558,7 @@ GAP наступного разу, коли він нам знадобиться
 </h3>
 <pre class="output" tabindex="0"><code>function( G ) ... end</code></pre>
 </div>
-<p>Тепер ми можемо застосувати цю функцію до іншої групи, передавши цю
+<p>Тепер ми можемо застосувати цю функцію до іншої групи, вказуючи цю
 групу як аргумент:</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1575,14 +1575,14 @@ GAP наступного разу, коли він нам знадобиться
 <p>Наведений вище приклад також демонструє використання
 <code>time</code>. Ця змінна зберігає в мілісекундах час, який процесор
 витратив на виконання останньої команди.</p>
-<p>Таким чином, тепер ми можемо створювати нові групи та повторно
-використовувати <code>AvgOrdOfGroup</code> для обчислення середнього
-порядку їхніх елементів у тому самому сеансі роботи з GAP. Наша наступна
-мета — зберегти цю функцію для її використання у майбутньому.</p>
+<p>Тепер ми можемо створювати нові групи та повторно використовувати
+<code>AvgOrdOfGroup</code> для обчислення середнього порядку їхніх
+елементів у тому самому сеансі роботи з GAP. Наша наступна мета —
+зберегти цю функцію для її використання у майбутньому.</p>
 <p>Використовуючи текстовий редактор (наприклад, той, з яким ви,
 можливо, працювали на попередніх уроках Software Carpentry), створіть
 текстовий файл під назвою <code>avgord.g</code>, що містить наступний
-код функції та коментарі (хороший шанс звернути увагу на на коментування
+код функції та коментарі (хороший шанс звернути увагу на коментування
 коду):</p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1604,7 +1604,7 @@ GAP наступного разу, коли він нам знадобиться
 <span id="cb17-15"><a href="#cb17-15" tabindex="-1" aria-label="code-block-17-15"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span>
 <span id="cb17-16"><a href="#cb17-16" tabindex="-1" aria-label="code-block-17-16"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
 </div>
-<p>Тепер почніть новий сеанс роботи з GAP і створіть іншу групу,
+<p>Далі, почніть новий сеанс роботи з GAP і створіть іншу групу,
 наприклад, <code>MathieuGroup(11)</code>:</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1617,7 +1617,7 @@ GAP наступного разу, коли він нам знадобиться
 <pre class="output" tabindex="0"><code>Group([ (1,2,3,4,5,6,7,8,9,10,11), (3,7,11,8)(4,10,5,6) ])</code></pre>
 </div>
 <p>Очевидно, що функція <code>AvgOrdOfGroup</code> не визначена в цьому
-сеансі, тому спроба викликати її призводить до помилки:</p>
+сеансі, тому спроба викликати її призведе до помилки:</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1632,14 +1632,14 @@ not in any function at line 2 of *stdin*</code></pre>
 <p>Щоб ця функція була доступною, її потрібно спочатку завантажити за
 допомогою функції <code>Read</code>. Нижче ми припускаємо, що файл
 <code>avgord.g</code> знаходиться в поточному каталозі, тому шлях до
-нього не потрібен.</p>
+нього не потрібно вказувати.</p>
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb22-1"><a href="#cb22-1" tabindex="-1" aria-label="code-block-22-1"></a><span class="bu">Read</span>(<span class="st">"avgord.g"</span>)<span class="op">;</span></span></code></pre>
 </div>
-<p>Це завантажує у GAP код з файлу, і тепер функція
-<code>AvgOrdOfGroup</code> вже доступна:</p>
+<p>Це завантажує у GAP код з файлу, і тепер функцію
+<code>AvgOrdOfGroup</code> можна використовувати:</p>
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1650,16 +1650,15 @@ not in any function at line 2 of *stdin*</code></pre>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="fl">53131</span><span class="op">/</span><span class="fl">7920</span></span></code></pre>
 </div>
-<p>У цьому приклад використання <code>Read</code> було розпочато новий
-сеанс GAP для того, щоб було зрозуміло, що функція
-<code>AvgOrdOfGroup</code> не існувала до виклику <code>Read</code> і
-була завантажена з файлу. Однак файл із такою функцією можна прочитати
-кілька разів під час одного сеансу GAP (пізніше ви побачите випадки,
-коли повторне читання файлу є складнішим). Повторний виклик
-<code>Read</code> виконує весь код у файлі, що зчитується. Це означає,
-що якщо код функції було змінено і в ньому немає помилок (але, можливо,
-є попередження), функція буде перезаписана. <strong>Ніколи не ігноруйте
-попередження!</strong></p>
+<p>У цьому прикладі ми навмисно розпочали новий сеанс GAP для того, щоб
+було зрозуміло, що функція <code>AvgOrdOfGroup</code> не існувала до
+виклику <code>Read</code> і була завантажена з файлу. Однак файл із
+такою функцією можна прочитати кілька разів під час одного сеансу GAP
+(пізніше ви побачите випадки, коли повторне читання файлу є складнішим).
+Повторний виклик <code>Read</code> виконує весь код у файлі, що
+зчитується. Це означає, що якщо код функції було змінено і в ньому немає
+помилок (але, можливо, є попередження), функція буде перезаписана.
+<strong>Ніколи не ігноруйте попередження!</strong></p>
 <p>Наприклад, давайте відредагуємо файл і замінимо рядок</p>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1687,8 +1686,7 @@ return Float(sum/Size(G);
                         ^</code></pre>
 </div>
 <p>Оскільки сталася помилка, функція <code>AvgOrdOfGroup</code> у нашому
-сеансі не була перевизначена та залишається такою ж, як і минулого разу,
-коли вона була успішно прочитана:</p>
+сеансі не була перевизначена та залишається без змін:</p>
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1705,7 +1703,7 @@ return Float(sum/Size(G);
 end</code></pre>
 </div>
 <p>Тепер виправте помилку, додавши відсутню закриваючу дужку, прочитайте
-файл ще раз і обчисліть знов середній порядок елемента для
+файл ще раз і повторно обчисліть середній порядок елемента для групи
 <code>M11</code>:</p>
 <div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1889,7 +1887,7 @@ brk&gt;</code></pre>
 </div>
 </div></section><section id="aio-04-testing"><p>Content from <a href="04-testing.html">Використання регресійних тестів</a></p>
 <hr>
-<p>Останнє оновлення 2026-05-16 |
+<p>Останнє оновлення 2026-05-22 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/04-testing.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Приблизний час: <i aria-hidden="true" data-feather="clock"></i> 50 хвилин</p>
@@ -1943,7 +1941,7 @@ brk&gt;</code></pre>
 тестування на основі повторних запусків раніше завершених тестів, щоб
 переконатися, що нові зміни не вплинуть на їх коректність або не
 погіршать їх роботу.</p>
-<p>Для початку нам потрібно створити <strong>тестовий файл</strong>.
+<p>Спочатку нам потрібно створити <strong>тестовий файл</strong>.
 Тестовий файл виглядає точно так само, як сеанс GAP, тому його легко
 створити, скопіювавши та вставивши сеанс GAP з усіма підказками, входами
 та виходами GAP у текстовий файл (тестовий файл також можна створити з
@@ -2113,8 +2111,8 @@ GAP, які починаються з <code>#</code>. З цією метою, р
 <span><span class="va">false</span></span></code></pre>
 </div>
 <p>Дійсно, ми допустили помилку (навмисно) і замінили
-<code>Size(c)</code> на <code>Size(cc)</code>. Правильний варіант курсу
-має виглядати так:</p>
+<code>Size(c)</code> на <code>Size(cc)</code>. Звісно, правильний
+варіант має виглядати так:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2156,13 +2154,13 @@ GAP, які починаються з <code>#</code>. З цією метою, р
 GAP.</li>
 <li>Написання хорошого та комплексного набору тестів вимагає певних
 зусиль.</li>
-<li>Зробіть спочатку правильно, а потім швидко!</li>
+<li>Спочатку зробіть правильно, а потім швидко!</li>
 </ul>
 </div>
 </div>
-</div></section><section id="aio-05-small-groups"><p>Content from <a href="05-small-groups.html">Пошук малих груп</a></p>
+</div></section><section id="aio-05-small-groups"><p>Content from <a href="05-small-groups.html">Пошук груп малих порядків</a></p>
 <hr>
-<p>Останнє оновлення 2026-05-03 |
+<p>Останнє оновлення 2026-05-22 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/05-small-groups.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Приблизний час: <i aria-hidden="true" data-feather="clock"></i> 55 хвилин</p>
@@ -3083,8 +3081,8 @@ comments.</p></li>
   "url": "https://ukrainian-carpentries.github.io/gap-lesson/instructor/aio.html",
   "identifier": "https://ukrainian-carpentries.github.io/gap-lesson/instructor/aio.html",
   "dateCreated": "2014-10-21",
-  "dateModified": "2026-05-19",
-  "datePublished": "2026-05-19"
+  "dateModified": "2026-05-22",
+  "datePublished": "2026-05-22"
 }
 
   </script><script>
