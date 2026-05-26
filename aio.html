@@ -1881,7 +1881,7 @@ brk&gt;</code></pre>
 </div>
 </div></section><section id="aio-04-testing"><p>Content from <a href="04-testing.html">Використання регресійних тестів</a></p>
 <hr>
-<p>Останнє оновлення 2026-05-25 |
+<p>Останнє оновлення 2026-05-26 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/04-testing.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1895,7 +1895,7 @@ brk&gt;</code></pre>
 <div class="inner">
 <h3 class="card-title">Питання</h3>
 <ul>
-<li>Що таке регресійні тести</li>
+<li>Регресійні тести</li>
 </ul>
 </div>
 </div>
@@ -2153,7 +2153,7 @@ brk&gt;</code></pre>
 </div>
 </div></section><section id="aio-05-small-groups"><p>Content from <a href="05-small-groups.html">Пошук груп малих порядків</a></p>
 <hr>
-<p>Останнє оновлення 2026-05-22 |
+<p>Останнє оновлення 2026-05-26 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/05-small-groups.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2167,8 +2167,8 @@ brk&gt;</code></pre>
 <div class="inner">
 <h3 class="card-title">Питання</h3>
 <ul>
-<li>Модульне програмування: поєднання функцій разом</li>
-<li>Як перевірити деяку гіпотезу для всіх груп заданого порядку</li>
+<li>Модульне програмування</li>
+<li>Пошук прикладів та контрприкладів серед груп заданого порядку</li>
 </ul>
 </div>
 </div>
@@ -2178,27 +2178,29 @@ brk&gt;</code></pre>
 <div class="inner bordered">
 <h3 class="card-title">Цілі</h3>
 <ul>
-<li>Використовуючи Small Groups Library</li>
-<li>Розробка системи функцій, яка сумісна</li>
+<li>Використання бібліотеки груп малих порядків (Small Groups
+Library)</li>
+<li>Створення взаємоповʼязаних функцій</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<p>У цьому розділі ми хочемо відкрити деякі нетривіальні групи з цікавою
-властивістю, а саме, що середній порядок їхніх елементів є цілим
-числом.</p>
-<p>Дистрибутив GAP включає низку бібліотек даних (див. огляд <a href="https://www.gap-system.org/Datalib/datalib.html" class="external-link">тут</a>). Однією
-з них є <a href="https://www.gap-system.org/Packages/sgl.html" class="external-link">Small
-Groups Library</a> Ганса Ульріха Беше, Беттіни Айк та Імона
+<p>У цьому розділі ми знайдемо нетривіальні групи з цікавою властивістю,
+а саме, коли середній порядок елементів групи є цілим числом.</p>
+<p>Дистрибутив GAP включає різноманітні бібліотеки даних (щоб їх знайти,
+наприклад, введіть слово “library” у рядок пошуку у <a href="https://www.gap-system.org/packages/" class="external-link">переліку пакетів, що
+розповсюджуються з GAP</a>). Однією з них є бібліотека груп малих
+порядків (<a href="https://www.gap-system.org/Packages/sgl.html" class="external-link">Small
+Groups Library</a>) Ганса Ульріха Беше, Беттіни Айк та Імонна
 О’Брайена.</p>
-<p>Ця бібліотека надає різні утиліти для визначення того, яка інформація
-там зберігається, і надсилання запитів для пошуку груп із потрібними
-властивостями. Ключовими функціями є <code>SmallGroup</code>,
-<code>AllSmallGroups</code>, <code>NrSmallGroups</code>,
-<code>SmallGroupsInformation</code> та <code>IdGroup</code>.
-Наприклад:</p>
+<p>Бібліотека Small Groups Library надає інструментарій для визначення
+того, яка інформація у ній зберігається, і надсилання запитів для пошуку
+груп з потрібними властивостями. Основними функціями для запиту
+інформації є <code>SmallGroup</code>, <code>AllSmallGroups</code>,
+<code>NrSmallGroups</code>, <code>SmallGroupsInformation</code> та
+<code>IdGroup</code>, наприклад:</p>
 <div class="codewrapper">
 <h3 class="code-label">ВИВІД<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2231,9 +2233,9 @@ gap&gt; AllSmallGroups(Size,64,NilpotencyClassOfGroup,5);
 gap&gt; List(last,IdGroup);
 [ [ 64, 52 ], [ 64, 53 ], [ 64, 54 ] ]</code></pre>
 </div>
-<p>Ми хотіли б використати нашу власну функцію тестування, яку ми
-створимо тут, використовуючи вбудовану нотацію (доступну для функцій з
-одним аргументом):</p>
+<p>Ми хотіли б використати нашу функцію для перевірки властивостей
+групи. Створимо цю функцію, використовуючи вбудовану нотацію для функцій
+з одним аргументом:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
