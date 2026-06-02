@@ -2159,7 +2159,7 @@ brk&gt;</code></pre>
 </div>
 </div></section><section id="aio-05-small-groups"><p>Content from <a href="05-small-groups.html">Пошук груп малих порядків</a></p>
 <hr>
-<p>Останнє оновлення 2026-05-26 |
+<p>Останнє оновлення 2026-06-02 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/05-small-groups.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Приблизний час: <i aria-hidden="true" data-feather="clock"></i> 55 хвилин</p>
@@ -2277,16 +2277,16 @@ gap&gt; List(last,IdGroup);
 <div id="тут-починається-модульне-програмування" class="callout-inner">
 <h3 class="callout-title">Тут починається модульне програмування</h3>
 <div class="callout-content">
-<p>Чому повернення логічних значень є хорошим проєктним рішенням для
-таких функцій, замість того, щоб просто друкувати інформацію чи
-повертати рядок, наприклад <code>"YES"</code>?</p>
+<p>Чому повертати логічні значення краще, ніж просто друкувати
+інформацію чи повертати рядок, наприклад, <code>"YES"</code>?</p>
 </div>
 </div>
 </div>
-<p>Це простий приклад функції, яка перевіряє всі групи заданого порядку.
-Він створює одну групу за раз, перевіряє потрібну властивість і
-повертається, щойно буде виявлено приклад. В іншому випадку він повертає
-<code>fail</code>, який є особливим типом логічної змінної в GAP.</p>
+<p>Наведемо простий приклад функції, яка перевіряє всі групи заданого
+порядку. Ми створюємо одну групу на кожній ітерації, перевіряємо
+потрібну властивість та повертаємо ідентифікатор цієї групи, як тільки
+буде виявлено приклад. Якщо приклад не знайдено, функція повертає
+<code>fail</code>, що є особливим типом логічної змінної в GAP.</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2332,20 +2332,21 @@ gap&gt; List(last,IdGroup);
 пам’яті - що робити?</h3>
 <div class="callout-content">
 <ul>
-<li>Використовуйте ітерацію над <code>[1..NrSmallGroups(n)]</code>, як
-показано у функції вище</li>
-<li>Використовуйте <code>IdsOfAllSmallGroups</code>, яка приймає ті самі
-аргументи, що й <code>AllSmallGroups</code>, але повертає ідентифікатори
-замість груп.</li>
+<li>Використовуйте цикл, як показано у функції вище, щоб створювати
+тільки одну групу на кожній ітерації</li>
+<li>Використовуйте функцію <code>IdsOfAllSmallGroups</code>, яка приймає
+ті самі аргументи, що й <code>AllSmallGroups</code>, але повертає
+ідентифікатори груп замість самих груп.</li>
 </ul>
 </div>
 </div>
 </div>
-<p>Ітерація над <code>[1..NrSmallGroups(n)]</code> дає вам більше
-гнучкості, якщо вам потрібно більше контролювати хід обчислення.
-Наприклад, наступна версія нашої функції тестування друкує додаткову
-інформацію про номер групи, що тестується. Він також надає функцію
-тестування як аргумент (чому ви думаєте, що це краще?).</p>
+<p>Перебір елементів зі списку <code>[1..NrSmallGroups(n)]</code> дає
+вам більше гнучкості, якщо вам потрібно більш детально контролювати хід
+обчислення. Наприклад, наступна версія нашої функції друкує додаткову
+інформацію про номер групи, що розглядається. Вона також сприймає
+функцію для перевірки однієї групи як аргумент (як ви думаєте, чому це
+краще?).</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2369,7 +2370,7 @@ gap&gt; List(last,IdGroup);
 </h3>
 <pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a><span class="va">TestOneOrder</span>(<span class="va">TestOneGroup</span><span class="op">,</span><span class="fl">64</span>)<span class="op">;</span></span></code></pre>
 </div>
-<p>відобразить змінний лічильник під час обчислення, а потім поверне
+<p>відображає лічильник ітерацій під час обчислення, а потім повертає
 <code>fail</code>:</p>
 <div class="codewrapper">
 <h3 class="code-label">ВИВІД<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2379,8 +2380,7 @@ gap&gt; List(last,IdGroup);
 </div>
 <p>Наступним кроком є інтеграція <code>TestOneOrder</code> у функцію,
 яка перевірить усі порядки від 2 до <code>n</code> і зупиниться, щойно
-знайде приклад групи, середній порядок елемента якого є цілим
-числом:</p>
+знайде приклад групи, середній порядок елемента якої є цілим числом:</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2422,9 +2422,10 @@ gap&gt; List(last,IdGroup);
 105:1/2
 [ 105, 1 ]</code></pre>
 </div>
-<p>Щоб дослідити її далі, ми можемо отримати її
-<code>StructureDescription</code> (див. <a href="https://www.gap-system.org/Manuals/doc/ref/chap39.html#X87BF1B887C91CA2E" class="external-link">тут</a>
-для пояснення нотації, яку використано):</p>
+<p>Щоб дослідити цю групу, ми можемо отримати її
+<code>StructureDescription</code> (див. <a href="https://www.gap-system.org/Manuals/doc/ref/chap39.html#X87BF1B887C91CA2E" class="external-link">документацію</a>
+для пояснення нотації, яку використано у
+<code>StructureDescription</code>):</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2450,8 +2451,9 @@ gap&gt; List(last,IdGroup);
 <pre class="output" tabindex="0"><code>[ F1^3, F2^-1*F1^-1*F2*F1, F3^-1*F2^-1*F3*F2, F3^-1*F1^-1*F3*F1*F3^-1, F2^5,
 F3^7 ]</code></pre>
 </div>
-<p>Тепер ми хочемо спробувати більші групи, починаючи з порядку 106 (ми
-перевіряємо, що інша група порядку 105 не має такої властивості)</p>
+<p>Тепер ми розглянемо “більші” групи, починаючи з порядку 106 (але
+спочатку перевіримо, що інша група порядку 105 не має такої
+властивості)</p>
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2462,8 +2464,8 @@ F3^7 ]</code></pre>
 </h3>
 <pre class="output" tabindex="0"><code>[ 17, 301/5 ]</code></pre>
 </div>
-<p>З невеликими змінами ми додаємо додатковий аргумент, який визначає
-порядок, з якого потрібно починати:</p>
+<p>Щоб уникнути зайвих обчислень, додамо додатковий аргумент, який
+визначає порядок груп, з якого потрібно починати:</p>
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2486,28 +2488,29 @@ F3^7 ]</code></pre>
 </div>
 <p>і виявляємо, що тестування 2328 груп порядку 128 і додатково 56092
 груп порядку 256 вже займає занадто багато часу.</p>
-<div id="не-панікувати" class="callout">
+<div id="без-паніки" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Примітка</span>
-<div id="не-панікувати" class="callout-inner">
-<h3 class="callout-title">Не панікувати!</h3>
+<div id="без-паніки" class="callout-inner">
+<h3 class="callout-title">Без паніки!</h3>
 <div class="callout-content">
-<p>Ви можете перервати GAP, натиснувши Ctrl-C один раз. Після цього GAP
-увійде в цикл розриву, позначений підказкою розриву
-<code>brk&gt;</code>. Ви можете вийти з нього, ввівши <code>quit;</code>
+<p>Ви можете перервати роботу GAP, натиснувши Ctrl-C один раз. Після
+цього GAP виведе запрошення <code>brk&gt;</code>. Ви можете перевірити
+поточні значення змінних, щоб краще зрозуміти контекст виконання. Для
+того, щоб вийти до головної сесії GAP, треба ввести <code>quit;</code>
 (стережіться натискання Ctrl-C двічі протягом секунди – це повністю
 завершить сеанс GAP).</p>
 </div>
 </div>
 </div>
 <p>Це ще одна ситуація, коли теоретичні знання допомагають набагато
-більше, ніж підхід грубої сили. Якщо група є <em>p</em>-групою, то
+більше, ніж підхід “грубої сили”. Якщо група є <em>p</em>-групою, то
 порядок кожного класу спряженості нетотожного елемента групи ділиться на
-<em>p</em>; отже, середній порядок елемента групи може не бути цілим
-числом. Тому <em>p</em>-групи можна виключити з розрахунку. Отже, нова
-версія коду є</p>
+<em>p</em>; а отже, середній порядок елемента групи не може бути цілим
+числом. Тому <em>p</em>-групи можна не розглядати. Отже, нова версія
+коду має такий вигляд:</p>
 <div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2524,8 +2527,7 @@ F3^7 ]</code></pre>
 <span id="cb26-11"><a href="#cb26-11" tabindex="-1" aria-label="code-block-26-11"></a><span class="ex">return</span> <span class="cn">fail</span><span class="op">;</span></span>
 <span id="cb26-12"><a href="#cb26-12" tabindex="-1" aria-label="code-block-26-12"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
 </div>
-<p>і використовуючи його, ми можемо виявити групу порядку 357 з тією ж
-властивістю:</p>
+<p>Тепер ми можемо знайти групу порядку 357 з тією ж властивістю:</p>
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2548,21 +2550,22 @@ F3^7 ]</code></pre>
 </div>
 <p>Наступна функція демонструє ще більшу гнучкість: вона є варіативною,
 тобто вона може приймати два або більше аргументів, перші два з яких
-будуть призначені змінним <code>f</code> і <code>n</code>, а решта буде
-доступна в список <code>r</code> (це позначено <code>...</code> після
-<code>r</code>). Перший аргумент — функція перевірки, другий — порядок
-перевірки, третій і четвертий — номери першої та останньої груп цього
-порядку, які потрібно перевірити. За замовчуванням останні два
-дорівнюють 1 і <code>NrSmallGroups(n)</code> відповідно. Ця функція
-також показує, як перевірити вхідні дані та створювати зручні
-повідомлення про помилки у випадку неприпустимих аргументів.</p>
+будуть зберігатися у змінних <code>f</code> та <code>n</code>, а решта
+аргументів буде доступна у списку <code>r</code> (що позначається трьома
+крапками <code>...</code> після <code>r</code>). Перший аргумент —
+функція перевірки однієї групи, другий — порядок груп для перевірки,
+третій і четвертий — номери першої та останньої груп цього порядку, які
+потрібно перевірити. За замовчуванням останні два аргументи дорівнюють 1
+та <code>NrSmallGroups(n)</code>, відповідно. Ця функція також показує,
+як перевірити вхідні дані та створювати зручні повідомлення про помилки
+у випадку неприпустимих аргументів.</p>
 <p>Крім того, ця функція демонструє, як використовувати повідомлення
 <code>Info</code>, які можна вмикати та вимикати, встановивши
-відповідний рівень <code>Info</code>. Потреба, яку ми тут розглядаємо,
-полягає в тому, щоб мати можливість перемикати рівні багатослівності
-виводу без підходу, схильного до помилок, проходження коду та
-коментування інструкцій <code>Print</code>. Це досягається шляхом
-створення інформаційного класу:</p>
+відповідний рівень <code>Info</code>. Проблема, яку ми намагаємось
+вирішити, полягає в тому, щоб мати можливість легко перемикати рівні
+деталізації виводу замість того, щоб окремо “закоментовувати” та
+“розкоментовувати” кожний рядок з командою <code>Print</code>. Це
+досягається шляхом створення інформаційного класу (Info class):</p>
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2576,9 +2579,9 @@ F3^7 ]</code></pre>
 <p>Тепер замість <code>Print("something");</code> можна використовувати
 <code>Info( InfoSmallGroupsSearch, infolevel, "something");</code>, де
 <code>infolevel</code> є додатним цілим числом, що визначає рівень
-докладності. Цей рівень можна змінити на <code>n</code> за допомогою
-команди <code>SetInfoLevel( InfoSmallGroupsSearch, n);</code>.
-Перегляньте фактичні виклики <code>Info</code> у коді нижче:</p>
+деталізації. Цей рівень можна змінити на <code>n</code> за допомогою
+команди <code>SetInfoLevel( InfoSmallGroupsSearch, n);</code>. Зверніть
+увагу, як <code>Info</code> викликається у коді нижче:</p>
 <div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2635,7 +2638,7 @@ F3^7 ]</code></pre>
 <span id="cb31-51"><a href="#cb31-51" tabindex="-1" aria-label="code-block-31-51"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
 </div>
 <p>У наступному прикладі показано, як тепер можна керувати виводом,
-перемикаючи рівень інформації для
+перемикаючи рівень деталізації для
 <code>InfoSmallGroupsSearch</code>:</p>
 <div class="codewrapper">
 <h3 class="code-label">ВИВІД<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2655,12 +2658,12 @@ gap&gt; SetInfoLevel( InfoSmallGroupsSearch, 0);
 gap&gt; TestOneOrderVariadic(IsIntegerAverageOrder,357);
 [ 357, 1 ]</code></pre>
 </div>
-<p>Звичайно, тепер це вносить деякі ускладнення для тестового файлу,
-який порівнює фактичний вихід із еталонним виходом. Щоб вирішити цю
-проблему, ми вирішимо запустити тести на інформаційному рівні 0, щоб
-заблокувати всі додаткові виходи. Оскільки тести могли бути запущені в
-сеансі GAP з іншим рівнем інформації, ми запам’ятаємо цей рівень
-інформації, щоб відновити його після тесту:</p>
+<p>Звичайно, це вносить деякі складнощі для тестового файлу, який
+порівнює фактичний вивід з еталонним виводом. Щоб вирішити цю проблему,
+ми будемо запускати тести на інформаційному рівні 0, щоб заблокувати всі
+додаткові виводи. Оскільки сеанс GAP, в якому ми запускаємо тести, вже
+може використовувати інший рівень деталізації, ми запам’ятаємо цей
+рівень, щоб відновити його після тесту:</p>
 <div class="codewrapper">
 <h3 class="code-label">ВИВІД<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2690,14 +2693,14 @@ gap&gt; SetInfoLevel( InfoSmallGroupsSearch, INFO_SSS);</code></pre>
 іншу групу з цією властивістю?</h3>
 <div class="callout-content">
 <ul>
-<li><p>Що Ви можете сказати про порядок груп із цією
+<li><p>Що можна сказати про порядок знайдених груп із цією
 властивістю?</p></li>
 <li><p>Чи можете Ви оцінити, скільки часу може зайняти перевірка всіх
 408641062 груп порядку 1536?</p></li>
-<li><p>Скільки груп порядку не вище 2000 Ви могли б перевірити, за
+<li><p>Скільки груп порядку не вище 2000 можна було б перевірити, за
 винятком <em>p</em>-груп і груп порядку 1536?</p></li>
-<li><p>Чи можете Ви знайти іншу групу з цією властивістю в бібліотеці
-Small Groups Library (порядок не дорівнює 1536)?</p></li>
+<li><p>Чи можна знайти іншу групу з цією властивістю в бібліотеці Small
+Groups Library, за винятком груп порядку 1536?</p></li>
 </ul>
 </div>
 </div>
@@ -2711,18 +2714,18 @@ Small Groups Library (порядок не дорівнює 1536)?</p></li>
 <div class="callout-content">
 <ul>
 <li>Організуйте код у функції.</li>
-<li>Створюйте малі групи одну за одною замість того, щоб створювати їх
-величезний список.</li>
+<li>Викликайте групи малих порядків з бібліотеки послідовно замість
+того, щоб створювати величезний список усіх груп одного порядку.</li>
 <li>Використання <code>SmallGroupsInformation</code> може допомогти
-зменшити простір пошуку.</li>
+зменшити кількість варіантів для пошуку.</li>
 <li>GAP не є чарівним інструментом: теоретичні знання можуть допомогти
-набагато більше, ніж підхід грубої сили.</li>
+набагато більше, ніж підхід “грубої сили”.</li>
 </ul>
 </div>
 </div>
 </div></section><section id="aio-06-attributes"><p>Content from <a href="06-attributes.html">Атрибути та методи</a></p>
 <hr>
-<p>Останнє оновлення 2026-04-28 |
+<p>Останнє оновлення 2026-06-02 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/06-attributes.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Приблизний час: <i aria-hidden="true" data-feather="clock"></i> 50 хвилин</p>
@@ -2993,13 +2996,13 @@ comments.</p></li>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="fl">9141</span></span></code></pre>
 </div>
-<div id="не-панікуйте" class="callout discussion">
+<div id="без-паніки" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <span class="callout-header">Обговорення</span>
-<div id="не-панікуйте" class="callout-inner">
-<h3 class="callout-title">Не панікуйте!</h3>
+<div id="без-паніки" class="callout-inner">
+<h3 class="callout-title">Без паніки!</h3>
 <div class="callout-content">
 <ul>
 <li><p>Установіть метод для <code>IsPcGroup</code>, який повторює
