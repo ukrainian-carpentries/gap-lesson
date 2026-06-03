@@ -2153,7 +2153,7 @@ brk&gt;</code></pre>
 </div>
 </div></section><section id="aio-05-small-groups"><p>Content from <a href="05-small-groups.html">Пошук груп малих порядків</a></p>
 <hr>
-<p>Останнє оновлення 2026-06-02 |
+<p>Останнє оновлення 2026-06-03 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/05-small-groups.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2688,7 +2688,7 @@ gap&gt; SetInfoLevel( InfoSmallGroupsSearch, INFO_SSS);</code></pre>
 <ul>
 <li><p>Що можна сказати про порядок знайдених груп із цією
 властивістю?</p></li>
-<li><p>Чи можете Ви оцінити, скільки часу може зайняти перевірка всіх
+<li><p>Чи можна оцінити, скільки часу може зайняти перевірка всіх
 408641062 груп порядку 1536?</p></li>
 <li><p>Скільки груп порядку не вище 2000 можна було б перевірити, за
 винятком <em>p</em>-груп і груп порядку 1536?</p></li>
@@ -2718,7 +2718,7 @@ Groups Library, за винятком груп порядку 1536?</p></li>
 </div>
 </div></section><section id="aio-06-attributes"><p>Content from <a href="06-attributes.html">Атрибути та методи</a></p>
 <hr>
-<p>Останнє оновлення 2026-06-02 |
+<p>Останнє оновлення 2026-06-03 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/episodes/06-attributes.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2732,7 +2732,7 @@ Groups Library, за винятком груп порядку 1536?</p></li>
 <div class="inner">
 <h3 class="card-title">Питання</h3>
 <ul>
-<li>Як записати інформацію в об’єкти GAP</li>
+<li>Як зберігати інформацію в об’єктах GAP?</li>
 </ul>
 </div>
 </div>
@@ -2760,16 +2760,16 @@ Groups Library, за винятком груп порядку 1536?</p></li>
 <div id="яка-функція-швидше" class="callout-inner">
 <h3 class="callout-title">Яка функція швидше?</h3>
 <div class="callout-content">
-<p>Спробуйте неодноразово обчислити <code>AvgOrdOfGroup(M11)</code> та
+<p>Спробуйте багаторазово обчислити <code>AvgOrdOfGroup(M11)</code> та
 <code>AvgOrdOfCollection(M11)</code> і порівняти час виконання. Зробіть
 це для нової копії <code>M11</code> і для тієї, для якої цей параметр
-уже спостерігався. Що ви спостерігаєте?</p>
+щойно було обчислено. Що ви помітили?</p>
 </div>
 </div>
 </div>
 <p>Звичайно, для будь-якої даної групи середній порядок її елементів
-потрібно обчислити лише один раз, оскільки наступного разу він поверне
-те саме значення. Однак, як ми бачимо з часу виконання нижче, кожен
+потрібно обчислити лише один раз, оскільки наступного разу повертається
+те ж саме значення. Однак, як ми бачимо з часу виконання нижче, кожен
 новий виклик <code>AvgOrdOfGroup</code> повторюватиме те саме обчислення
 знову, дещо змінюючи час виконання:</p>
 <div class="codewrapper sourceCode" id="cb1">
@@ -2795,16 +2795,17 @@ Groups Library, за винятком груп порядку 1536?</p></li>
 <span><span class="fl">2587393</span><span class="op">/</span><span class="fl">259200</span></span>
 <span><span class="fl">8118</span></span></code></pre>
 </div>
-<p>В останньому прикладі група, про яку йде мова, була такою самою – ми
-не створили іншу копію <code>AlternatingGroup(10)</code>; однак
-результат обчислення не було збережено в <code>A</code>.</p>
-<p>Якщо вам потрібно повторно використовувати це значення, одним із
-варіантів може бути збереження його в деякій змінній, але тоді ви
-повинні бути обережними щодо зіставлення таких змінних із відповідними
-групами, і код може стати досить заплутаним і нечитабельним. З іншого
-боку, GAP має поняття <em>атрибут</em> – структури даних, яка
-використовується для накопичення інформації, про яку об’єкт дізнається
-про себе протягом життя. Розгляньмо наступний приклад:</p>
+<p>В останньому прикладі група ми не створили іншу копію
+<code>AlternatingGroup(10)</code>, але результат обчислення не було
+збережено в <code>A</code>.</p>
+<p>Якщо потрібно повторно використати це значення, одним із варіантів
+може бути збереження його в деякій змінній, але тоді потрібно бути
+обережними щодо зіставлення таких змінних із відповідними групами, і код
+може стати досить заплутаним і нечитабельним. З іншого боку, в GAP є
+таке поняття як <em>атрибут</em> – структура даних, яка використовується
+для накопичення інформації, яку об’єкт “дізнається про себе протягом
+свого життя” (learns about itself during its lifetime). Розгляньмо
+наступний приклад:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2821,9 +2822,9 @@ Groups Library, за винятком груп порядку 1536?</p></li>
 0</code></pre>
 </div>
 <p>У цьому випадку група <code>G</code> має 10 класів спряженості, і
-знадобилося 39 мс, щоб встановити це під час першого виклику. Другий
-виклик має нульову вартість, оскільки результат було збережено в
-<code>G</code>, і тому, що <code>NrConjugacyClasses</code> є
+знадобилося 39 мілісекунд, щоб отримати це під час першого виклику.
+Другий виклик миттєво повертає результат, оскільки він був збережений в
+<code>G</code>, саме тому, що <code>NrConjugacyClasses</code> є
 атрибутом:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2835,10 +2836,10 @@ Groups Library, за винятком груп порядку 1536?</p></li>
 </h3>
 <pre class="output" tabindex="0"><code>&lt;Attribute "NrConjugacyClasses"&gt;</code></pre>
 </div>
-<p>Зараз наша мета — навчитися створювати власні атрибути.</p>
-<p>Оскільки у нас вже є функція <code>AvgOrdOfCollection</code>, яка
-виконує обчислення, найпростішим способом перетворити її на атрибут є
-наступний:</p>
+<p>Наша наступна задача — навчитися створювати власні атрибути.</p>
+<p>Оскільки у нас вже є функція <code>AvgOrdOfCollection</code>, що
+виконує необхідне обчислення, то найпростішим способом перетворити її на
+атрибут є наступний:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2849,11 +2850,12 @@ Groups Library, за винятком груп порядку 1536?</p></li>
 <code>AverageOrder</code> для об’єктів у категорії
 <code>IsCollection</code>, а потім встановили функцію
 <code>AvgOrdOfCollection</code> як метод для цього атрибута. Замість
-виклику функції <code>AvgOrdOfCollection</code>, тепер ми можемо
-викликати <code>AverageOrder</code>.</p>
-<p>Тепер ми можемо перевірити, що наступні виклики
-<code>AverageOrder</code> з тим самим аргументом виконуються без витрат
-часу. У цьому прикладі час скорочено з більш ніж 16 секунд до нуля:</p>
+функції <code>AvgOrdOfCollection</code>, тепер ми можемо викликати
+<code>AverageOrder</code>.</p>
+<p>Далі, ми можемо перевірити, що наступні виклики
+<code>AverageOrder</code> з тим самим аргументом виконуються без
+додаткових витрат часу. У цьому прикладі час виконання скорочується з 16
+секунд до нуля:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2868,30 +2870,30 @@ Groups Library, за винятком груп порядку 1536?</p></li>
 <span><span class="fl">0</span></span></code></pre>
 </div>
 <p>Ви можете запитати, чому ми оголосили операцію для колекції, а не
-лише для групи, і чому ми встановили неефективний
-<code>AvgOrdOfCollection</code>. Зрештою, ми вже розробили набагато
+лише для групи, і чому ми встановили неефективний метод
+<code>AvgOrdOfCollection</code>. Зрештою, ми вже маємо набагато
 ефективнішу функцію <code>AvgOrdOfGroup</code>.</p>
 <p>Уявіть, що Ви хочете мати можливість обчислити середній порядок як
 для групи, так і для списку, який складається з об’єктів, що мають
-мультиплікативний порядок. Ви можете мати спеціальну функцію для кожного
-випадку, як у нас. Якщо може трапитися так, що Ви не знаєте наперед тип
-об’єкта, про який йде мова, Ви можете додати перевірки в код і
-відправити до відповідної функції. Це може швидко стати складним, якщо у
-вас є кілька різних функцій для різних типів об’єктів. Натомість
-атрибути — це групи функцій, які називаються <em>method</em>, а
-<em>вибір методу</em> в GAP вибере найефективніший метод на основі типу
-всіх аргументів.</p>
-<p>Щоб проілюструвати це, зараз ми встановимо метод для
+мультиплікативний порядок. Ви можете мати окрему функцію для кожного
+випадку, наприклад, як ми маємо зараз. Щоб зробити код більш
+універсальним, до нього можна додати перевірку типу обʼєкту, що
+розглядається, для виклику відповідної функції. Це може швидко стати
+складним, якщо у вас є кілька різних функцій для різних типів об’єктів.
+Натомість <em>атрибути</em> — це групи функцій, які називаються
+<em>методами</em>, а <em>вибір методу</em> в GAP знайде найефективніший
+метод на основі типів усіх аргументів.</p>
+<p>Щоб проілюструвати це, зараз ми встановимо метод для атрибуту
 <code>AverageOrder</code> для групи:</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb12-1"><a href="#cb12-1" tabindex="-1" aria-label="code-block-12-1"></a><span class="bu">InstallMethod</span>( <span class="va">AverageOrder</span><span class="op">,</span> [<span class="bu">IsGroup</span>]<span class="op">,</span> <span class="va">AvgOrdOfGroup</span>)<span class="op">;</span></span></code></pre>
 </div>
-<p>Якщо ви застосуєте його до групи, для якої <code>AverageOrder</code>
-вже обчислено, нічого не станеться, оскільки GAP використовуватиме
-збережене значення. Однак для новоствореної групи цей новий метод буде
-називатися:</p>
+<p>Якщо застосувати це до групи, для якої <code>AverageOrder</code> вже
+обчислено, нічого не зміниться, оскільки GAP використовуватиме вже
+збережене значення. Однак для новоствореної групи буде викликатися цей
+новий метод:</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2905,38 +2907,39 @@ Groups Library, за винятком груп порядку 1536?</p></li>
 <span><span class="fl">39020911</span><span class="op">/</span><span class="fl">3628800</span></span>
 <span><span class="fl">0</span></span></code></pre>
 </div>
-<div id="який-метод-викликається" class="callout">
+<div id="як-зрозуміти-який-метод-викликається" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Примітка</span>
-<div id="який-метод-викликається" class="callout-inner">
-<h3 class="callout-title">Який метод викликається</h3>
+<div id="як-зрозуміти-який-метод-викликається" class="callout-inner">
+<h3 class="callout-title">Як зрозуміти, який метод викликається</h3>
 <div class="callout-content">
 <ul>
-<li><p>Try to call <code>AverageOrder</code> for a collection which is
-not a group (a list of group elements and/or a conjugacy class of group
-elements).</p></li>
-<li><p>Debugging tools like <code>TraceMethods</code> may help you see
-which method is being called.</p></li>
-<li><p><code>ApplicableMethod</code> in combination with
-<code>PageSource</code> may point you to the source code with all the
-comments.</p></li>
+<li><p>Спробуйте викликати <code>AverageOrder</code> для колекції, яка
+не є групою (список елементів групи та/або клас спряжених елементів
+групи).</p></li>
+<li><p>Побачити, який метод викликається, можна за допомогою функції
+<code>TraceMethods</code>.</p></li>
+<li><p>Функція <code>ApplicableMethod</code> в комбінації з
+<code>PageSource</code> може вказати на конкретні рядки у вихідному коді
+разом з коментарями.</p></li>
 </ul>
 </div>
 </div>
 </div>
-<p><em>Property</em> є атрибутом із логічним значенням. Його можна
-створити, використовуючи <code>NewProperty</code></p>
+<p>Спеціальним видом атрибуту є <em>властивість</em>
+(<em>property</em>), тобто атрибут із булевим значенням. Властивість
+можна створити, використовуючи <code>NewProperty</code>:</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb15-1"><a href="#cb15-1" tabindex="-1" aria-label="code-block-15-1"></a><span class="va">IsIntegerAverageOrder</span> <span class="op">:=</span> <span class="bu">NewProperty</span>(<span class="st">"IsIntegerAverageOrder"</span><span class="op">,</span> <span class="bu">IsCollection</span>)<span class="op">;</span></span></code></pre>
 </div>
-<p>Тепер ми встановимо метод для <code>IsIntegerAverageOrder</code> для
-колекції. Зауважте, що ніколи не потрібно спочатку створювати функцію, а
-потім встановлювати її як метод. Наступне встановлення методу натомість
-створює нову функцію як один із своїх аргументів:</p>
+<p>Тепер встановимо метод для <code>IsIntegerAverageOrder</code> для
+колекції. Зауважимо, що не обовʼязково спочатку створювати функцію, а
+потім встановлювати її як метод. Замість цього, нову функцію можна
+вказати як аргумент під час встановлення методу:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2946,28 +2949,28 @@ comments.</p></li>
 <span id="cb16-4"><a href="#cb16-4" tabindex="-1" aria-label="code-block-16-4"></a>  <span class="va">coll</span> <span class="op">-&gt;</span> <span class="bu">IsInt</span>( <span class="va">AverageOrder</span>( <span class="va">coll</span> ) )</span>
 <span id="cb16-5"><a href="#cb16-5" tabindex="-1" aria-label="code-block-16-5"></a>)<span class="op">;</span></span></code></pre>
 </div>
-<p>Зауважте, що оскільки <code>AverageOrder</code> є атрибутом, він
-подбає про вибір найбільш прийнятного методу.</p>
-<div id="чи-завжди-такий-метод-існує" class="callout">
+<p>Зауважте, що <code>AverageOrder</code> є атрибутом, і саме це
+забезпечить вибір оптимального методу.</p>
+<div id="чи-буває-що-прийнятного-методу-взагалі-не-існує" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Примітка</span>
-<div id="чи-завжди-такий-метод-існує" class="callout-inner">
-<h3 class="callout-title">Чи завжди такий метод існує?</h3>
+<div id="чи-буває-що-прийнятного-методу-взагалі-не-існує" class="callout-inner">
+<h3 class="callout-title">Чи буває, що прийнятного методу взагалі не
+існує?</h3>
 <div class="callout-content">
-<p>Ні. “No-method-found” є особливим видом помилки, і існують
-інструменти для дослідження таких помилок: див.
-<code>?ShowArguments</code>, <code>?ShowDetails</code>,
-<code>?ShowMethods</code>&gt; та <code>?ShowOtherMethods</code>.</p>
+<p>Так. У такому разі буде видано помилку “No-method-found”. Це
+особливий вид помилки, який можна дослідити за допомогою таких
+інструментів як <code>ShowArguments</code>, <code>ShowDetails</code>,
+<code>ShowMethods</code> та <code>ShowOtherMethods</code>.</p>
 </div>
 </div>
 </div>
-<p>Наступні обчислення показують, що, незважаючи на наш успіх з
-обчисленням середнього порядку для великих груп перестановок через класи
-спряженості елементів, для pc груп із бібліотеки Small Groups Library
-можна було б швидше перебирати їх елементи, ніж обчислювати класи
-спряженості:</p>
+<p>Наступні обчислення показують, що незважаючи на швидке обчислення
+середнього порядку для великих груп перестановок через класи спряжених
+елементів, для pc груп із бібліотеки Small Groups Library прямий перебір
+їх елементів працює швидше, ніж обчислення класів спряженості:</p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2997,11 +3000,11 @@ comments.</p></li>
 <h3 class="callout-title">Без паніки!</h3>
 <div class="callout-content">
 <ul>
-<li><p>Установіть метод для <code>IsPcGroup</code>, який повторює
-елементи групи замість обчислень її класів спряженості.</p></li>
-<li><p>Оцініть практичні межі його можливості. Чи можете ви знайти
-приклад pc групи, де ітерація повільніша, ніж обчислення класів
-спряженості?</p></li>
+<li><p>Установіть метод для <code>IsPcGroup</code>, який перебирає
+елементи групи замість знаходження її класів спряженості.</p></li>
+<li><p>Оцініть практичні межі можливостей цього методу. Чи можна знайти
+приклад pc групи, де перебір елементів повільніший, ніж обчислення
+класів спряженості?</p></li>
 </ul>
 </div>
 </div>
@@ -3018,10 +3021,10 @@ comments.</p></li>
 <em>Позиційні</em> об’єкти можуть накопичувати інформацію про себе
 протягом життя.</li>
 <li>Це означає, що наступного разу збережену інформацію можна буде
-відновити без жодних витрат.</li>
+отримати без жодних витрат часу.</li>
 <li>
-<em>Методи</em> — це групи функцій; <em>Вибір методів</em> GAP
-вибере найефективніший метод на основі типу всіх аргументів.</li>
+<em>Методи</em> — це групи функцій. <em>Вибір методів</em> визначить
+найефективніший метод на основі типів всіх аргументів.</li>
 <li>‘Метод не знайдено’ — це особливий вид помилки з корисними
 інструментами налагодження, які допомагають її зрозуміти.</li>
 </ul>
@@ -3077,8 +3080,8 @@ comments.</p></li>
   "url": "https://ukrainian-carpentries.github.io/gap-lesson/aio.html",
   "identifier": "https://ukrainian-carpentries.github.io/gap-lesson/aio.html",
   "dateCreated": "2014-10-21",
-  "dateModified": "2026-06-02",
-  "datePublished": "2026-06-02"
+  "dateModified": "2026-06-03",
+  "datePublished": "2026-06-03"
 }
 
   </script><script>
