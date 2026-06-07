@@ -290,7 +290,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Обговорення</h1>
-        <p>Останнє оновлення 2026-05-04 |
+        <p>Останнє оновлення 2026-06-07 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/learners/discuss.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -304,133 +304,132 @@
 
         
 
-<section><h2 class="section-heading" id="десять-підказок-для-початківців-gap">Десять підказок для початківців GAP<a class="anchor" aria-label="anchor" href="#%D0%B4%D0%B5%D1%81%D1%8F%D1%82%D1%8C-%D0%BF%D1%96%D0%B4%D0%BA%D0%B0%D0%B7%D0%BE%D0%BA-%D0%B4%D0%BB%D1%8F-%D0%BF%D0%BE%D1%87%D0%B0%D1%82%D0%BA%D1%96%D0%B2%D1%86%D1%96%D0%B2-gap"></a></h2>
+<section><h2 class="section-heading" id="десять-порад-для-початківців-gap">Десять порад для початківців GAP<a class="anchor" aria-label="anchor" href="#%D0%B4%D0%B5%D1%81%D1%8F%D1%82%D1%8C-%D0%BF%D0%BE%D1%80%D0%B0%D0%B4-%D0%B4%D0%BB%D1%8F-%D0%BF%D0%BE%D1%87%D0%B0%D1%82%D0%BA%D1%96%D0%B2%D1%86%D1%96%D0%B2-gap"></a></h2>
 <hr class="half-width"><ol style="list-style-type: decimal"><li><p><strong>Пам’ятайте, що GAP чутливий до регістру!</strong> Це
-означає, що <code>ABC</code>, <code>Abc</code> і <code>abc</code> є
-трьома різними ідентифікаторами. Виклик <code>SymmetricGroup(3)</code>
-працює, але <code>Symmetricgroup(3)</code> призведе до помилки.</p></li>
+означає, що <code>ABC</code>, <code>Abc</code> та <code>abc</code> є
+трьома різними ідентифікаторами. Виклик функції
+<code>SymmetricGroup(3)</code> працює, але
+<code>Symmetricgroup(3)</code> призведе до помилки.</p></li>
 <li><p>Повідомлення про помилку
 <strong><code>“Error, Variable: 'FuncName' must have a value”</code></strong>
 під час виклику функції зазвичай вказує на друкарську помилку в назві
-функції (див. попередню підказку) або на якийсь пакет, який потрібно
-завантажити заздалегідь за допомогою <a href="https://www.gap-system.org/Manuals/doc/ref/chap76.html#X79B373A77B29D1F5" class="external-link"><strong><code>LoadPackage</code></strong></a>.</p></li>
-<li><p><strong>Не соромтеся використовувати довші та більш інформативні
+функції (див. попередню пораду) або на якийсь пакет, який потрібно
+завантажити заздалегідь за допомогою <a href="https://docs.gap-system.org/doc/ref/chap76.html#X79B373A77B29D1F5" class="external-link"><strong><code>LoadPackage</code></strong></a>.</p></li>
+<li><p><strong>Не вагайтеся використовувати довші та більш інформативні
 назви змінних, де це доцільно.</strong> Наприклад, <code>x</code>
 виглядає ідеально придатним для <code>List([1..10], x -&gt; x^2)</code>,
 тоді як <code>ConClassesReps</code> може бути більш інформативним, ніж
-просто <code>x</code> для списку представників класів спряженості групи
-(англ. “Conjugacy Classes Representatives”).</p></li>
+просто <code>x</code> для списку представників класів спряженості
+елементів групи (від англ. “Conjugacy Classes
+Representatives”).</p></li>
 <li><p><strong>Використовуйте редагування командного рядка:</strong>
-прокручуйте історію команд і переміщайтеся в командному рядку за
+переглядайте історію команд та переміщайтеся в командному рядку за
 допомогою клавіш зі стрілками, щоб редагувати його.</p></li>
-<li><p><strong>Використовуйте автозаповнення замість того, щоб вводити
+<li><p><strong>Використовуйте автодоповнення замість того, щоб вводити
 назви функцій і змінних повністю.</strong> Введіть початкову частину
 ідентифікатора, а потім натисніть <code>&lt;Tab&gt;</code>. Він буде
-доповнений, якщо можливе його унікальне завершення. Якщо ні, ви можете
-знову натиснути <code>&lt;Tab&gt;</code> щоб переглянути всі можливі
+доповнений, якщо можливе його унікальне завершення. Якщо ні, знову
+натисніть <code>&lt;Tab&gt;</code>, щоб переглянути всі можливі
 пропозиції.</p></li>
 <li><p><strong>Щоб переглянути сторінки довідки, використовуйте команди
 <code>?</code> і <code>??</code></strong>. Це дозволить шукати не тільки
-у посібниках GAP, але також у посібниках усіх пакетів GAP, доступних у
-вашій інсталяції GAP.</p></li>
+у документації самої системи GAP, але також у документації усіх пакетів,
+доступних у вашій інсталяції GAP.</p></li>
 <li><p><strong>Встановіть HTML у якості формату довідки за
-замовчуванням.</strong> Використовуйте <a href="https://www.gap-system.org/Manuals/doc/ref/chap2.html#X87C1BFB2826488B0" class="external-link"><strong><code>SetHelpViewer</code></strong></a>,
-щоб переглянути його у бажаному браузері.</p></li>
-<li><p><strong>Використовуйте <a href="https://www.gap-system.org/Manuals/doc/ref/chap9.html#X79813A6686894960" class="external-link"><strong><code>LogTo</code></strong></a>
-щоб зберегти всі введення та виведення GAP у текстовий файл.</strong>
-Його слід викликати перед обчисленнями, а не після!</p></li>
+замовчуванням.</strong> Використовуйте <a href="https://docs.gap-system.org/doc/ref/chap2.html#X87C1BFB2826488B0" class="external-link"><strong><code>SetHelpViewer</code></strong></a>,
+щоб переглянути її у бажаному браузері.</p></li>
+<li><p><strong>Використовуйте <a href="https://docs.gap-system.org/doc/ref/chap9.html#X79813A6686894960" class="external-link"><strong><code>LogTo</code></strong></a>,
+щоб зберегти всі введення та виведення GAP у текстовий файл.</strong> Цю
+функцію слід викликати перед обчисленнями, а не після!</p></li>
 <li><p><strong>Якщо обчислення триває надто довго, натисніть
 <code>&lt;Control&gt;-C</code>, щоб перервати його</strong>. Потім
-введіть quit; щоб вийти з перерваного циклу.</p></li>
-<li><p><strong>Прочитайте <a href="https://www.gap-system.org/Manuals/doc/tut/chap2.html" class="external-link">Перша сесія
-з GAP</a></strong> з Підручнику з GAP.</p></li>
-</ol></section><section><h2 class="section-heading" id="написання-програм-на-gap">Написання програм на GAP<a class="anchor" aria-label="anchor" href="#%D0%BD%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%BD%D1%8F-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC-%D0%BD%D0%B0-gap"></a></h2>
+введіть <code>quit</code>; щоб повернутись до головної сесії
+GAP.</p></li>
+<li><p><strong>Прочитайте розділ <a href="https://docs.gap-system.org/doc/tut/chap2.html" class="external-link">Перша сесія з
+GAP</a></strong> з Підручнику з GAP.</p></li>
+</ol></section><section><h2 class="section-heading" id="програмування-у-gap">Програмування у GAP<a class="anchor" aria-label="anchor" href="#%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D1%83-gap"></a></h2>
 <hr class="half-width"><ul><li><p>Використовуйте прямі обчислення в командному рядку для
 дослідження об’єктів і прототипування, а потім подумайте, як
-упорядкувати свій код, щоб зробити його багаторазовим.</p></li>
-<li><p>Використовуйте <a href="https://www.gap-system.org/Manuals/doc/ref/chap9.html#X79813A6686894960" class="external-link"><strong><code>LogTo</code></strong></a>
-для збереження вхідних і вихідних даних у файл журналу, який потім можна
+упорядкувати свій код для використання у майбутньому.</p></li>
+<li><p>Використовуйте <a href="https://docs.gap-system.org/doc/ref/chap9.html#X79813A6686894960" class="external-link"><strong><code>LogTo</code></strong></a>
+для збереження вводу та виводу у файл журналу, який потім можна
 редагувати в текстовому редакторі.</p></li>
-<li><p>Збережіть код у текстових файлах і використовуйте <a href="https://www.gap-system.org/Manuals/doc/ref/chap9.html#X8373AC6B7D5F9167" class="external-link"><strong><code>Прочитайте</code></strong></a>,
-щоб завантажити їх. Знайдіть розширений текстовий редактор для
-редагування цих файлів.</p></li>
-<li><p>Зробіть свій код модульним і придатним для багаторазового
-використання, організувавши функціями.</p></li>
-<li><p>Пишіть коментарі в коді – це допоможе вам, коли ви повернетеся до
+<li><p>Зберігайте код у текстових файлах і використовуйте <a href="https://docs.gap-system.org/doc/ref/chap9.html#X8373AC6B7D5F9167" class="external-link"><strong><code>Read</code></strong></a>
+для їх завантаження. Оберіть якийсь повнофункціональний текстовий
+редактор для редагування цих файлів.</p></li>
+<li><p>Шляхом створення функцій робіть свій код модульним і придатним
+для багаторазового використання.</p></li>
+<li><p>Пишіть коментарі у коді – це допоможе вам, коли ви повернетеся до
 нього через деякий час.</p></li>
-<li><p>Зрозумійте, <a href="https://www.gap-system.org/Manuals/doc/ref/chap6.html#X8593B49F8705B486" class="external-link">розрив
-циклів</a>: що ви можете <a href="https://www.gap-system.org/Manuals/doc/ref/chap6.html#X7EE5CF2C8419F061" class="external-link">досліджувати
-змінні</a> на поточному рівні перерви та використовувати, <a href="https://www.gap-system.org/Manuals/doc/ref/chap6.html#X7A7FFA2B7C1EF5A3" class="external-link"><strong><code>Where</code></strong></a>
-щоб показати останні команди до того, як сталася помилка.</p></li>
-<li><p>Використовуйте <a href="https://www.gap-system.org/Manuals/doc/ref/chap3.html#X7FD66F977A3B02DF" class="external-link">механізм
-переваг</a> для налаштування GAP, наприклад, щоб установити засіб
-перегляду довідки на HTML або зробити історію командного рядка доступною
-після виходу з GAP під час наступного сеансу GAP.</p></li>
-<li><p>Зрозумійте теорію, що лежить в основі обчислень: теоретичні
-вдосконалення можуть підвищити продуктивність набагато більше, ніж
-високооптимізований код, який все ще виконує обчислення грубою
-силою.</p></li>
-<li><p>Реалізуючи алгоритми, не забувайте про наріжні випадки.
-Наприклад, чи працює реалізація на тривіальній групі чи одиничному
-елементі?</p></li>
+<li><p>Зрозумійте, що робити, коли GAP видає <a href="https://docs.gap-system.org/doc/ref/chap6.html#X8593B49F8705B486" class="external-link">запрошення
+<code>brk&gt;</code></a>: ви можете <a href="https://docs.gap-system.org/doc/ref/chap6.html#X7EE5CF2C8419F061" class="external-link">дослідити
+змінні</a> у поточному контексті виконання та використати <a href="https://docs.gap-system.org/doc/ref/chap6.html#X7A7FFA2B7C1EF5A3" class="external-link"><strong><code>Where</code></strong></a>
+щоб побачити останні команди до того, як сталася помилка.</p></li>
+<li><p>Використовуйте <a href="https://docs.gap-system.org/doc/ref/chap3.html#X7FD66F977A3B02DF" class="external-link">механізм
+налаштувань</a> для налаштування GAP, наприклад, щоб установити перегляд
+довідки у форматі HTML або щоб зробити історію командного рядка
+доступною після виходу з GAP під час наступного сеансу GAP.</p></li>
+<li><p>Зрозумійте теорію, на якій базуються обчислення: теоретичні
+вдосконалення можуть підвищити продуктивність коду набагато більше, ніж
+оптимізований код, який все ще виконує обчислення “грубою
+силою”.</p></li>
+<li><p>Під час розробки алгоритмів, не забувайте про виключні випадки.
+Наприклад, чи працює ваш код з тривіальною групою чи одиничним
+елементом?</p></li>
 <li><p>Не покладайтеся на те, що функції GAP повертають результати в
-певному порядку, якщо це не задукоментовано. Наприклад, залежно від
-методу, це може бути не гарантованим, що класи спряженості або незвідні
-символи перераховані в певному порядку, або що перший елемент у їх
-списку є класом спряженості одиничного елемента або тривіального
-символу.</p></li>
+певному порядку, якщо це не задокументовано. Наприклад, деякі методи не
+гарантують, що класи спряженості або незвідні характери перераховані в
+певному порядку, або що перший елемент у їх списку є класом спряженості
+одиничного елемента або тривіальним характером.</p></li>
 <li>
-<p>Не вимагайте більше, ніж вам потрібно, оскільки це може вплинути
-на продуктивність. Наприклад:</p>
+<p>Не намагайтеся обчислити більше інформації, ніж вам потрібно,
+оскільки це може вплинути на продуктивність. Наприклад:</p>
 <ul><li><p>Якщо властивість є інваріантом класу спряженості (елементів або
-підгруп), вам може бути цікаво лише поглянути на представників класів
+підгруп), вам може бути достатньо розглянути лише представників класів
 спряженості.</p></li>
-<li><p>Якщо вас цікавить список елементів колекції без певного порядку,
+<li><p>Якщо вас цікавить список елементів колекції у довільному порядку,
 використовуйте <code>AsList</code> замість
 <code>AsSSortedList</code>.</p></li>
-<li><p>Не обчислюйте класи спряженості всіх підгруп, якщо напр. Вас
-цікавлять лише нормальні або максимальні підгрупи - для їх обчислення
+<li><p>Не обчислюйте класи спряженості всіх підгруп, якщо напр. треба
+знайти лише нормальні або максимальні підгрупи - для їх обчислення
 існують спеціальні методи.</p></li>
 <li><p>Якщо ви шукаєте <em>p</em>--підгрупи, спочатку ви можете
-обчислити силовську <em>p</em>-підгрупу групи, а потім поглянути на її
-підгрупи та їх спряжені.</p></li>
-<li><p>Представлення має значення: можливо, варто перетворити групу з fp
-групи на ізоморфну pc групу або групу перестановок, щоб використовувати
-швидші методи.</p></li>
+обчислити Силовську <em>p</em>-підгрупу групи, а потім отримати її
+підгрупи та спряжені з ними.</p></li>
+<li><p>Представлення має значення: можливо, варто перетворити групу з
+fp-групи на ізоморфну pc-групу або групу перестановок, щоб
+використовувати швидші методи.</p></li>
 </ul></li>
-<li><p>Перегляньте <a href="https://www.gap-system.org/Faq/faq.html" class="external-link">GAP
-Frequently Asked Questions</a>, щоб отримати додаткові
-підказки.</p></li>
+<li><p>Перегляньте <a href="https://www.gap-system.org/faq/" class="external-link">GAP
+Frequently Asked Questions</a>, щоб знайти додаткові поради.</p></li>
 </ul></section><section><h2 class="section-heading" id="залишайтеся-на-звязку">Залишайтеся на зв’язку<a class="anchor" aria-label="anchor" href="#%D0%B7%D0%B0%D0%BB%D0%B8%D1%88%D0%B0%D0%B9%D1%82%D0%B5%D1%81%D1%8F-%D0%BD%D0%B0-%D0%B7%D0%B2%D1%8F%D0%B7%D0%BA%D1%83"></a></h2>
-<hr class="half-width"><ul><li><p>Підпишіться на <strong><a href="https://mail.gap-system.org/mailman/listinfo/forum" class="external-link">GAP
+<hr class="half-width"><ul><li><p>Підпишіться на <strong><a href="https://www.gap-system.org/forum/" class="external-link">GAP
 Forum</a></strong>.</p></li>
 <li>
 <p>Якщо вам потрібна допомога, виберіть один із цих трьох варіантів,
 залежно від питання:</p>
-<ul><li><p>задати запитання в <a href="https://www.gap-system.org/Contacts/Forum/forum.html" class="external-link">GAP
-Forum</a></p></li>
-<li><p>надішліть їх до <a href="https://www.gap-system.org/Contacts/People/supportgroup.html" class="external-link">GAP
+<ul><li><p>задайте запитання в <a href="https://www.gap-system.org/forum/" class="external-link">GAP Forum</a></p></li>
+<li><p>надішліть їх до <a href="https://www.gap-system.org/forum/" class="external-link">GAP
 Support</a></p></li>
-<li><p>опублікуйте їх на <a href="https://math.stackexchange.com/questions/tagged/gap?sort=frequent&amp;pageSize=50" class="external-link">Mathematics
+<li><p>запитайте їх на <a href="https://math.stackexchange.com/questions/tagged/gap?sort=frequent&amp;pageSize=50" class="external-link">Mathematics
 Q&amp;A site</a></p></li>
 </ul></li>
 </ul></section><section><h2 class="section-heading" id="внесок-у-gap">Внесок у GAP<a class="anchor" aria-label="anchor" href="#%D0%B2%D0%BD%D0%B5%D1%81%D0%BE%D0%BA-%D1%83-gap"></a></h2>
-<hr class="half-width"><ul><li><p>Якщо ви вважаєте, що знайшли помилку: будь ласка, <a href="https://github.com/gap-system/gap/issues" class="external-link">створити проблему на
-GitHub</a> або повідомте про це електронною поштою на адресу <a href="https://www.gap-system.org/Contacts/People/supportgroup.html" class="external-link">GAP
-Support</a>.</p></li>
-<li><p>Будь ласка, вкажіть GAP, якщо Ви його використовуєте. Це сприяє
-зростанню спільноти, і це допоможе вам у відповідь. <a href="https://www.gap-system.org/Contacts/cite.html" class="external-link">Ця сторінка</a>
-підказує, як цитувати GAP і функція <a href="https://www.gap-system.org/Manuals/doc/ref/chap76.html#X79637D9A7B1AD7F7" class="external-link"><strong><code>Цитувати</code></strong></a>
-допоможе створити зразок цитування для тієї самої версії GAP, яка
+<hr class="half-width"><ul><li><p>Якщо ви вважаєте, що знайшли помилку: будь ласка, <a href="https://github.com/gap-system/gap/issues" class="external-link">опишіть проблему на
+GitHub</a> або повідомте про це електронною поштою на адресу <a href="https://www.gap-system.org/issues/" class="external-link">GAP Support</a>.</p></li>
+<li><p>Будь ласка, цитуйте GAP, якщо Ви його використовуєте. Це сприяє
+зростанню спільноти, і це допоможе вам у зворотному напрямку. <a href="https://www.gap-system.org/cite/" class="external-link">Ця сторінка</a> пропонує, як
+цитувати GAP. Також, функція <a href="https://docs.gap-system.org/doc/ref/chap76.html#X79637D9A7B1AD7F7" class="external-link"><strong><code>Cite</code></strong></a>
+створює зразок цитування для тієї самої версії GAP, яка
 використовується.</p></li>
-<li><p>Подумайте про те, щоб поділитися своїми розробками GAP з іншими,
-від спільного використання вашого коду доступними засобами до
-організації його в пакет GAP, надісланий для повторного розповсюдження
-через GAP і, за бажанням, для рецензування.</p></li>
-<li><p>Сприяти подальшому розвитку самого уроку.</p></li>
+<li><p>Розгляньте можливість поділитися своїми розробками у GAP з
+іншими, від поширення вашого коду доступними засобами до організації
+його в пакет GAP, який можна запропонувати для розповсюдження разом з
+GAP у складі його дистрибутива.</p></li>
+<li><p>Допоможіть подальшому розвитку цього уроку.</p></li>
 </ul></section><section><h2 class="section-heading" id="поради-та-підказки">Поради та підказки<a class="anchor" aria-label="anchor" href="#%D0%BF%D0%BE%D1%80%D0%B0%D0%B4%D0%B8-%D1%82%D0%B0-%D0%BF%D1%96%D0%B4%D0%BA%D0%B0%D0%B7%D0%BA%D0%B8"></a></h2>
-<hr class="half-width"><ul><li>Це простий підхід для виклику GAP зі сценарію оболонки. Створіть
-сценарій оболонки під назвою <code>check-one-order.sh</code> із таким
+<hr class="half-width"><ul><li>Це простий підхід для виклику GAP зі скрипту оболонки. Створіть
+скрипт оболонки під назвою <code>check-one-order.sh</code> із таким
 вмістом:</li>
 </ul><div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -442,9 +441,9 @@ Support</a>.</p></li>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1" aria-label="code-block-1-5"></a><span class="va">quit</span><span class="op">;</span></span>
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1" aria-label="code-block-1-6"></a><span class="va">EOI</span></span></code></pre>
 </div>
-<p>і зробіть його виконуваним за допомогою
-<code>chmod u+x check-one-order.sh</code>. Тепер ви можете назвати це
-так:</p>
+<p>та зробіть його виконуваним за допомогою
+<code>chmod u+x check-one-order.sh</code>. Тепер ви можете викликати
+його так:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -466,36 +465,36 @@ Support</a>.</p></li>
 <pre class="output" tabindex="0"><code>[ 105, 1 ]</code></pre>
 </div>
 <ul><li>Читання файлів із даними</li>
-</ul><p>GAP може читати будь-який дійсний ввід GAP із коду за допомогою
-<code>Read</code>. Вміст буде прочитано та оцінено в основному циклі
-читання-оцінки-друку, але результати не будуть надруковані. Іноді вам
-може знадобитися прочитати вміст файлу як функцію та повернути цю
-функцію - для цієї мети вам може знадобитися
-<code>ReadAsFunction</code>. Але що робити, якщо у вас є файл даних, що
-надходить з іншого джерела, і це недійсний ввід GAP? Іноді ви можете
-керувати інструментом, який експортує дані, і можете налаштувати його
-для створення вхідного файлу GAP. Але де шукати, якщо цей варіант
-неможливий?</p>
-<p><code>ReadCSV( filename[, nohead][, separator] )</code> читає файл у
-форматі CSV (значення, розділені комами) і повертає його записи як
-список записів (див. <a href="https://www.gap-system.org/Manuals/doc/ref/chap10.html#X848DD7DC79363341" class="external-link">документацію</a>).
-Записи першого рядка файлу будуть використані для імен компонентів
-запису (прогалини будуть перетворені на підкреслення). Можна також
-вказати, що перший рядок містить дані замість імен полів, а також
-вказати спеціальний роздільник. Навпаки, <code>PrintCSV</code> може
-використовуватися для виведення файлів CSV.</p>
+</ul><p>GAP може читати будь-який дійсний ввід GAP із файлу за допомогою
+<code>Read</code>. Вміст буде прочитано та виконано в контексті головної
+сесії GAP, але результати не будуть надруковані. Іноді може знадобитися
+прочитати вміст файлу як функцію та повернути цю функцію - для цієї мети
+можна використовувати <code>ReadAsFunction</code>. Але що робити, якщо
+треба прочитати деякі дані, що надійшли в іншому форматі з іншого
+джерела? Іноді ви можете контролювати формат експорту даних, та можете
+налаштувати його для виводу вхідного файлу GAP. Але що робити, якщо цей
+варіант неможливий?</p>
+<p>Функція <code>ReadCSV( filename[, nohead][, separator] )</code> читає
+файл у форматі CSV (значення, розділені комами) і повертає його рядки як
+список записів (див. <a href="https://docs.gap-system.org/doc/ref/chap10.html#X848DD7DC79363341" class="external-link">документацію</a>).
+Зміст першого рядка файлу буде використано для імен компонентів записів
+(пробіли будуть замінені на підкреслення). Можна також вказати, що
+перший рядок теж містить дані замість імен полів, а також вказати
+спеціальний роздільник. Навпаки, функція <code>PrintCSV</code> може
+використовуватися для виведення файлів у CSV форматі.</p>
 <p>Щоб читати довільні (бінарні або текстові) файли як рядки,
-скористайтеся функцією <code>StringFile</code>, що надається пакетом
-GAPDoc (see <a href="https://www.gap-system.org/Manuals/pkg/GAPDoc-1.5.1/doc/chap6.html#X7E14D32181FBC3C3" class="external-link">тут</a>).
-Він поверне вміст файлу у вигляді рядка. Після цього ви можете
-використовувати різні інструменти для роботи з рядками (див. <a href="https://www.gap-system.org/Manuals/doc/ref/chap27.htmlGAPDoc" class="external-link">Рядки
-та символи</a> у довідковому посібнику GAP) , щоб обробити його
-потрібним вам способом. Пакет GAPDoc також надає функцію
-<code>FileString</code>, яка записує вміст рядка у файл.</p>
-<p>Якщо вам потрібно організувати читання/запис рядок за рядком, замість
-читання або запису всього файлу/рядка одночасно, ми пропонуємо
-переглянути функціональні можливості, які надає пакет IO (див. <a href="https://www.gap-system.org/Manuals/pkg/io-4.4.6/doc/chap4.html" class="external-link">тут</a>),
-зокрема, в <code>IO_ReadLine</code> і <code>IO_WriteLine</code>.</p>
+користуйтеся функцією <code>StringFile</code>, що надається пакетом
+GAPDoc (див. <a href="https://docs.gap-system.org/pkg/gapdoc/doc/chap6.html#X7E14D32181FBC3C3" class="external-link">документацію</a>).
+Вона повертає вміст файлу у вигляді рядка. Після цього можна
+використовувати різні інструменти для роботи з рядками (див. <a href="https://docs.gap-system.org/doc/ref/chap27.html" class="external-link">Рядки та
+символи</a> у довідковому посібнику GAP), щоб обробити його потрібним
+способом. Пакет GAPDoc також надає функцію <code>FileString</code>, яка
+записує вміст рядка у файл.</p>
+<p>Якщо потрібно організувати читання/запис рядок за рядком, замість
+читання або запису всього файлу/рядка одночасно, розгляньте можливості,
+які надає пакет IO (див. <a href="https://docs.gap-system.org/pkg/io/doc/chap4.html" class="external-link">документацію</a>),
+зокрема, функції <code>IO_ReadLine</code> та
+<code>IO_WriteLine</code>.</p>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Попередній і наступний розділи Bottom"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Попередній</a>
@@ -551,8 +550,8 @@ GAPDoc (see <a href="https://www.gap-system.org/Manuals/pkg/GAPDoc-1.5.1/doc/cha
   "url": "https://ukrainian-carpentries.github.io/gap-lesson/instructor/discuss.html",
   "identifier": "https://ukrainian-carpentries.github.io/gap-lesson/instructor/discuss.html",
   "dateCreated": "2014-10-21",
-  "dateModified": "2026-05-04",
-  "datePublished": "2026-06-03"
+  "dateModified": "2026-06-07",
+  "datePublished": "2026-06-07"
 }
 
   </script><script>
