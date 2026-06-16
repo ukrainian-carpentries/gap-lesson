@@ -290,7 +290,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Обговорення</h1>
-        <p>Останнє оновлення 2026-06-11 |
+        <p>Останнє оновлення 2026-06-16 |
 
         <a href="https://github.com/ukrainian-carpentries/gap-lesson/edit/main/learners/discuss.md" class="external-link">Редагувати цю сторінку <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -333,8 +333,8 @@
 у документації самої системи GAP, але також у документації усіх пакетів,
 доступних у вашій інсталяції GAP.</p></li>
 <li><p><strong>Встановіть HTML у якості формату довідки за
-замовчуванням.</strong> Використовуйте <a href="https://docs.gap-system.org/doc/ref/chap2.html#X87C1BFB2826488B0" class="external-link"><strong><code>SetHelpViewer</code></strong></a>,
-щоб переглянути її у бажаному браузері.</p></li>
+замовчуванням.</strong> Використовуйте <a href="https://docs.gap-system.org/doc/ref/chap2.html#X87C1BFB2826488B0" class="external-link"><strong><code>SetHelpViewer</code></strong></a>
+для перегляду у бажаному браузері.</p></li>
 <li><p><strong>Використовуйте <a href="https://docs.gap-system.org/doc/ref/chap9.html#X79813A6686894960" class="external-link"><strong><code>LogTo</code></strong></a>,
 щоб зберегти всі введення та виведення GAP у текстовий файл.</strong> Цю
 функцію слід викликати перед обчисленнями, а не після!</p></li>
@@ -342,8 +342,8 @@
 <code>&lt;Control&gt;-C</code>, щоб перервати його</strong>. Потім
 введіть <code>quit</code>; щоб повернутись до головної сесії
 GAP.</p></li>
-<li><p><strong>Прочитайте розділ <a href="https://docs.gap-system.org/doc/tut/chap2.html" class="external-link">Перша сесія з
-GAP</a></strong> з Підручнику з GAP.</p></li>
+<li><p><strong>Прочитайте розділ <a href="https://docs.gap-system.org/doc/tut/chap2.html" class="external-link">“A First Session
+with GAP”</a></strong>, який міститься у GAP Tutorial.</p></li>
 </ol></section><section><h2 class="section-heading" id="програмування-у-gap">Програмування у GAP<a class="anchor" aria-label="anchor" href="#%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D1%83-gap"></a></h2>
 <hr class="half-width"><ul><li><p>Використовуйте прямі обчислення в командному рядку для
 дослідження об’єктів і прототипування, а потім подумайте, як
@@ -356,11 +356,11 @@ GAP</a></strong> з Підручнику з GAP.</p></li>
 редактор для редагування цих файлів.</p></li>
 <li><p>Шляхом створення функцій робіть свій код модульним і придатним
 для багаторазового використання.</p></li>
-<li><p>Пишіть коментарі у коді – це допоможе вам, коли ви повернетеся до
+<li><p>Пишіть коментарі у коді – це допоможе, коли ви повернетеся до
 нього через деякий час.</p></li>
 <li><p>Зрозумійте, що робити, коли GAP видає <a href="https://docs.gap-system.org/doc/ref/chap6.html#X8593B49F8705B486" class="external-link">запрошення
 <code>brk&gt;</code></a>: ви можете <a href="https://docs.gap-system.org/doc/ref/chap6.html#X7EE5CF2C8419F061" class="external-link">дослідити
-змінні</a> у поточному контексті виконання та використати <a href="https://docs.gap-system.org/doc/ref/chap6.html#X7A7FFA2B7C1EF5A3" class="external-link"><strong><code>Where</code></strong></a>
+змінні</a> у поточному контексті виконання та використати <a href="https://docs.gap-system.org/doc/ref/chap6.html#X7A7FFA2B7C1EF5A3" class="external-link"><strong><code>Where</code></strong></a>,
 щоб побачити останні команди до того, як сталася помилка.</p></li>
 <li><p>Використовуйте <a href="https://docs.gap-system.org/doc/ref/chap3.html#X7FD66F977A3B02DF" class="external-link">механізм
 налаштувань</a> для налаштування GAP, наприклад, щоб установити перегляд
@@ -376,13 +376,14 @@ GAP</a></strong> з Підручнику з GAP.</p></li>
 <li><p>Не покладайтеся на те, що функції GAP повертають результати в
 певному порядку, якщо це незадокументовано. Наприклад, деякі методи не
 гарантують, що класи спряженості або незвідні характери перераховані в
-певному порядку, або що перший елемент у їх списку є класом спряженості
-одиничного елемента або тривіальним характером.</p></li>
+певному порядку. Більш того, перший елемент у їх списку не обовʼязково є
+класом спряженості одиничного елемента або тривіальним
+характером.</p></li>
 <li>
 <p>Не намагайтеся обчислити більше інформації, ніж вам потрібно,
 оскільки це може вплинути на продуктивність. Наприклад:</p>
 <ul><li><p>Якщо властивість є інваріантом класу спряженості (елементів або
-підгруп), вам може бути достатньо розглянути лише представників класів
+підгруп), може бути достатньо розглянути лише представників класів
 спряженості.</p></li>
 <li><p>Якщо вас цікавить список елементів колекції у довільному порядку,
 використовуйте <code>AsList</code> замість
@@ -390,9 +391,9 @@ GAP</a></strong> з Підручнику з GAP.</p></li>
 <li><p>Не обчислюйте класи спряженості всіх підгруп, якщо, наприклад,
 треба знайти лише нормальні або максимальні підгрупи - для їх обчислення
 існують спеціальні методи.</p></li>
-<li><p>Якщо ви шукаєте <em>p</em>--підгрупи, спочатку ви можете
-обчислити Силовську <em>p</em>-підгрупу групи, а потім отримати її
-підгрупи та спряжені з ними.</p></li>
+<li><p>Якщо шукаєте <em>p</em>-підгрупи, спочатку ви можете обчислити
+Силовську <em>p</em>-підгрупу групи, а потім отримати її підгрупи та
+спряжені з ними.</p></li>
 <li><p>Представлення має значення: можливо, варто перетворити групу з
 fp-групи на ізоморфну pc-групу або групу перестановок, щоб
 використовувати швидші методи.</p></li>
@@ -414,8 +415,8 @@ Q&amp;A site</a>.</p></li>
 </ul></section><section><h2 class="section-heading" id="внесок-у-gap">Внесок у GAP<a class="anchor" aria-label="anchor" href="#%D0%B2%D0%BD%D0%B5%D1%81%D0%BE%D0%BA-%D1%83-gap"></a></h2>
 <hr class="half-width"><ul><li><p>Якщо ви вважаєте, що знайшли помилку: будь ласка, <a href="https://github.com/gap-system/gap/issues" class="external-link">опишіть проблему на
 GitHub</a> або повідомте про це електронною поштою на адресу <a href="https://www.gap-system.org/issues/" class="external-link">GAP Support</a>.</p></li>
-<li><p>Будь ласка, цитуйте GAP, якщо Ви його використовуєте. Це сприяє
-зростанню спільноти, що має позитивний вплив на її учасників. <a href="https://www.gap-system.org/cite/" class="external-link">Ця сторінка</a> пропонує, як
+<li><p>Будь ласка, цитуйте GAP, якщо ви його використовуєте. Це сприяє
+зростанню спільноти, що має позитивний вплив на її учасників. <a href="https://www.gap-system.org/cite/" class="external-link">Ця сторінка</a> рекомендує, як
 цитувати GAP. Також, функція <a href="https://docs.gap-system.org/doc/ref/chap76.html#X79637D9A7B1AD7F7" class="external-link"><strong><code>Cite</code></strong></a>
 створює зразок цитування для тієї самої версії GAP, яка
 використовується.</p></li>
@@ -439,8 +440,8 @@ GAP у складі його дистрибутива.</p></li>
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1" aria-label="code-block-1-6"></a><span class="va">EOI</span></span></code></pre>
 </div>
 <p>та зробіть його виконуваним за допомогою
-<code>chmod u+x check-one-order.sh</code>. Тепер ви можете викликати
-його так:</p>
+<code>chmod u+x check-one-order.sh</code>. Тепер ви можете викликати цей
+скрипт:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -465,12 +466,12 @@ GAP у складі його дистрибутива.</p></li>
 </ul><p>GAP може читати будь-який дійсний ввід GAP із файлу за допомогою
 <code>Read</code>. Вміст буде прочитано та виконано в контексті головної
 сесії GAP, але результати не будуть надруковані. Іноді може знадобитися
-прочитати вміст файлу як функцію та повернути цю функцію - для цієї мети
+прочитати вміст файлу як функцію та повернути цю функцію. Для цієї мети
 можна використовувати <code>ReadAsFunction</code>. Але що робити, якщо
 треба прочитати деякі дані, що надійшли в іншому форматі з іншого
-джерела? Іноді ви можете контролювати формат експорту даних, та можете
-налаштувати його для виводу вхідного файлу GAP. Але що робити, якщо цей
-варіант неможливий?</p>
+джерела? Іноді ви можете контролювати формат експорту даних та
+налаштувати його для виводу вхідного файлу GAP. Якщо цей варіант
+неможливий, то що нам робити?</p>
 <p>Функція <code>ReadCSV( filename[, nohead][, separator] )</code> читає
 файл у форматі CSV (значення, розділені комами) і повертає його рядки як
 список записів (див. <a href="https://docs.gap-system.org/doc/ref/chap10.html#X848DD7DC79363341" class="external-link">документацію</a>).
@@ -483,10 +484,10 @@ GAP у складі його дистрибутива.</p></li>
 користуйтеся функцією <code>StringFile</code>, що надається пакетом
 GAPDoc (див. <a href="https://docs.gap-system.org/pkg/gapdoc/doc/chap6.html#X7E14D32181FBC3C3" class="external-link">документацію</a>).
 Ця функція повертає вміст файлу у вигляді рядка. Після цього можна
-використовувати різні інструменти для роботи з рядками (див. <a href="https://docs.gap-system.org/doc/ref/chap27.html" class="external-link">Рядки та
-символи</a> у довідковому посібнику GAP), щоб обробити його потрібним
-способом. Пакет GAPDoc також надає функцію <code>FileString</code>, яка
-записує вміст рядка у файл.</p>
+використовувати різні інструменти для роботи з рядками (див. <a href="https://docs.gap-system.org/doc/ref/chap27.html" class="external-link">“Strings and
+Characters”</a> у довідковому посібнику GAP) для подальшої роботи з ним.
+Пакет GAPDoc також надає функцію <code>FileString</code>, яка записує
+вміст рядка у файл.</p>
 <p>Якщо потрібно організувати читання/запис рядок за рядком, замість
 читання або запису всього файлу/рядка одночасно, розгляньте можливості,
 які надає пакет IO (див. <a href="https://docs.gap-system.org/pkg/io/doc/chap4.html" class="external-link">документацію</a>),
@@ -547,7 +548,7 @@ GAPDoc (див. <a href="https://docs.gap-system.org/pkg/gapdoc/doc/chap6.html#X
   "url": "https://ukrainian-carpentries.github.io/gap-lesson/discuss.html",
   "identifier": "https://ukrainian-carpentries.github.io/gap-lesson/discuss.html",
   "dateCreated": "2014-10-21",
-  "dateModified": "2026-06-11",
+  "dateModified": "2026-06-16",
   "datePublished": "2026-06-16"
 }
 
